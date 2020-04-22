@@ -1,7 +1,20 @@
-import React from 'react';
-import {Table,Button} from 'reactstrap';
+import React, {useState, useEffect} from 'react'
+import {Table} from 'reactstrap'
+import axios from 'axios'
+import SummaryLine from './components/SummaryLine'
 
 function App() {
+
+  const GET_ALL = "https://nnajnotk8l.execute-api.eu-west-1.amazonaws.com/TEST/neighbourhoodHelpBackendPython?api_name=get_all_help_requests"
+
+  const [state,setState] = useState({})
+
+  useEffect(() => {
+    axios.get(GET_ALL).then(res=>{
+      console.log(res)
+    })
+  }, []);
+
   return (
     <div className="App container">
       <Table>
@@ -14,19 +27,9 @@ function App() {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>Tommy</td>
-            <td>Luxembourg 15</td>
-            <td>+420686686686</td>
-            <td><Button color="success" size="sm">View</Button></td>
-          </tr>
-          
-          <tr>
-            <td>Filip</td>
-            <td>Lisbon 1234</td>
-            <td>+420607746666</td>
-            <td><Button color="success" size="sm">View</Button></td>
-          </tr>
+          <SummaryLine name="Tommy" phone="+420 606 606 445" address="Luxembourg 56"/>
+          <SummaryLine name="Filip" phone="+420 342 124 234" address="Portugal 666"/>
+          <SummaryLine name="Morgan Freeman" phone="(415) 555-2671" address="3th Street. 47 W 13th St, New York, NY 10011, USA"/>
         </tbody>
       </Table>
     </div>
