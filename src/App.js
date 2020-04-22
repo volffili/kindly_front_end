@@ -1,24 +1,34 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {Table,Button} from 'reactstrap';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App container">
+      <Table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Address</th>
+            <th>Phone</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Tommy</td>
+            <td>Luxembourg 15</td>
+            <td>+420686686686</td>
+            <td><Button color="success" size="sm">View</Button></td>
+          </tr>
+          
+          <tr>
+            <td>Filip</td>
+            <td>Lisbon 1234</td>
+            <td>+420607746666</td>
+            <td><Button color="success" size="sm">View</Button></td>
+          </tr>
+        </tbody>
+      </Table>
     </div>
   );
 }
