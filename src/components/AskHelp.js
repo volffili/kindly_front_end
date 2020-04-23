@@ -50,7 +50,8 @@ export default withFormik({
         description: Yup.string().min(50).required()
     }),
     handleSubmit(values){    
-        axios.post(baseUrl,{ 
+        console.log(values)
+        axios.get(baseUrl,{ 
             params: { 
                 api_name: "post_help_request",
                 requester_name: values.name,
