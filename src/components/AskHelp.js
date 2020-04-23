@@ -38,7 +38,7 @@ const AskHelp = ({
 
         <Button className="btn-lg btn-dark btn-block">Submit</Button>
     </Form>
-}
+};
 
 export default withFormik({
     validationSchema: Yup.object().shape({

@@ -4,6 +4,7 @@ import axios from 'axios'
 import HelpSummary from './components/HelpSummary'
 import AskHelp from './components/AskHelp'
 import {baseUrl} from './Url'
+import SimpleMap from "./components/SimpleMap";
 
 function App() {
 
@@ -20,6 +21,7 @@ function App() {
   return (
     <div className="App container">
       <AskHelp/>
+      <SimpleMap zoom={13} lat={50.0835221} lng={14.4151229}/>
       <Table>
         <thead>
           <tr>
