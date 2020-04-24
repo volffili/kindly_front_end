@@ -4,7 +4,7 @@ import axios from 'axios'
 import HelpSummary from './components/HelpSummary'
 import AskHelp from './components/AskHelp'
 import {baseUrl} from './Url'
-import MyMapComponent from "./components/AnotherMap"
+import Map from "./components/Map"
 import {googleMapsAPIKey} from "./GoogleMapsAPIKey";
 
 function App() {
@@ -22,7 +22,7 @@ function App() {
   return (
     <div className="App container">
       <AskHelp/>
-        <MyMapComponent
+        <Map
             isMarkerShown
             googleMapURL={`https://maps.googleapis.com/maps/api/js?key=${googleMapsAPIKey}&libraries=places`}
             loadingElement={<div style={{ height: `100%` }} />}
