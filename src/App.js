@@ -4,7 +4,8 @@ import axios from 'axios'
 import HelpSummary from './components/HelpSummary'
 import AskHelp from './components/AskHelp'
 import {baseUrl} from './Url'
-import SimpleMap from "./components/SimpleMap";
+import MyMapComponent from "./components/AnotherMap"
+import {googleMapsAPIKey} from "./GoogleMapsAPIKey";
 
 function App() {
 
@@ -21,7 +22,13 @@ function App() {
   return (
     <div className="App container">
       <AskHelp/>
-      <SimpleMap zoom={13} lat={50.0835221} lng={14.4151229}/>
+        <MyMapComponent
+            isMarkerShown
+            googleMapURL={`https://maps.googleapis.com/maps/api/js?key=${googleMapsAPIKey}&libraries=places`}
+            loadingElement={<div style={{ height: `100%` }} />}
+            containerElement={<div style={{ height: `400px` }} />}
+            mapElement={<div style={{ height: `100%` }} />}
+        />
       <Table>
         <thead>
           <tr>
