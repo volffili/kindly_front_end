@@ -3,6 +3,8 @@ import { withFormik, Form, Field } from "formik"
 import * as Yup from "yup"
 import { Button, Label, FormGroup } from "reactstrap"
 import { ReactstrapInput } from "reactstrap-formik"
+import axios from "axios"
+import { baseUrl } from "../Url"
 
 const Feedback = ({ errors, touched }) => {
   return (
@@ -44,7 +46,6 @@ const Feedback = ({ errors, touched }) => {
 export default withFormik({
   validationSchema: Yup.object().shape({
     predmet: Yup.string()
-      .matches(/.+\s.+/)
       .required("Chybí předmět")
       .max(100, "Předmět je příliš dlouhý"),
     email: Yup.string()
@@ -58,5 +59,13 @@ export default withFormik({
   }),
   handleSubmit(values) {
     console.log("Request should be send with these values:", values)
+    axios.get(baseUrl, {
+      params: {
+        api_name: "post_feedback",
+        email: values.email,
+        topic: values.predmet,
+        content: values.popis,
+      },
+    })
   },
 })(Feedback)
