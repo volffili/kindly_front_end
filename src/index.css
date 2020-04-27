@@ -1,7 +1,16 @@
-.askhelp-form{
-    width:100%;
-    max-width:330px;
-    padding:15px;
-    margin:auto;
-    height:100%;
+html,
+body {
+  height: 100%;
+}
+
+#root {
+  height: 100%;
+}
+
+.askhelp-form {
+  width: 100%;
+  max-width: 330px;
+  padding: 15px;
+  margin: auto;
+  height: 100%;
 }
