@@ -1,46 +1,49 @@
-import React from 'react'
-import {withFormik, Form, Field} from 'formik'
-import * as Yup from 'yup'
-import axios from 'axios'
-import {baseUrl} from '../Url'
-import {Button, Label, FormGroup} from 'reactstrap'
+import React from 'react';
+import {withFormik, Form, Field} from 'formik';
+import * as Yup from 'yup';
+import axios from 'axios';
+import {baseUrl} from '../Url';
+import {Button, Label, FormGroup} from 'reactstrap';
 import { ReactstrapInput } from "reactstrap-formik";
 import LocationInput from "./LocationAutocomplete";
+import styles from "./style.module.css";
 
 const AskHelp = ({
     errors,
     touched
 }) =>{
-    return <Form className="askhelp-form">
-        <FormGroup>
-            <Label>Name</Label>
-            <Field component={ReactstrapInput} type="text" name="name" placeholder="First and Last Name"/>
-        </FormGroup>
-        <FormGroup>
-            <Label>Age</Label>
-            <Field component={ReactstrapInput} type="text" name="age" placeholder="Age"/>
-        </FormGroup>
-        <FormGroup>
-            <Label>Phone</Label>
-            <Field component={ReactstrapInput} type="text" name="phone" placeholder="Phone Number"/>
-        </FormGroup>
-        <FormGroup>
-            <Label>Address</Label>
-            <Field component={ReactstrapInput} type="text" name="address" placeholder="Address"/>
-        </FormGroup>
-        <FormGroup>
-            <Label>Topic</Label>
-            <Field component={ReactstrapInput} type="text" name="topic" placeholder="Topic"/>
-        </FormGroup>
-        <FormGroup>
-            <Label>Description</Label>
-            <Field component={ReactstrapInput} type="textarea" rows="3" name="description" placeholder="Description"/>
-        </FormGroup>
+    return<div className={styles.formWrapper}>
+        <Form className="askhelp-form">
+            <FormGroup>
+                <Label>Name</Label>
+                <Field component={ReactstrapInput} type="text" name="name" placeholder="First and Last Name"/>
+            </FormGroup>
+            <FormGroup>
+                <Label>Age</Label>
+                <Field component={ReactstrapInput} type="text" name="age" placeholder="Age"/>
+            </FormGroup>
+            <FormGroup>
+                <Label>Phone</Label>
+                <Field component={ReactstrapInput} type="text" name="phone" placeholder="Phone Number"/>
+            </FormGroup>
+            <FormGroup>
+                <Label>Address</Label>
+                <Field component={ReactstrapInput} type="text" name="address" placeholder="Address"/>
+            </FormGroup>
+            <FormGroup>
+                <Label>Topic</Label>
+                <Field component={ReactstrapInput} type="text" name="topic" placeholder="Topic"/>
+            </FormGroup>
+            <FormGroup>
+                <Label>Description</Label>
+                <Field component={ReactstrapInput} type="textarea" rows="3" name="description" placeholder="Description"/>
+            </FormGroup>
 
-        <LocationInput/>
+            <LocationInput/>
 
-        <Button className="btn-lg btn-dark btn-block">Submit</Button>
-    </Form>
+            <Button className="btn-lg btn-dark btn-block">Submit</Button>
+        </Form>
+    </div>
 };
 
 export default withFormik({
