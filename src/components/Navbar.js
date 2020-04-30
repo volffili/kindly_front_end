@@ -4,7 +4,6 @@ import {
   NavbarBrand,
   Nav,
   NavItem,
-  NavbarText,
   Collapse,
   NavLink,
 } from "reactstrap"

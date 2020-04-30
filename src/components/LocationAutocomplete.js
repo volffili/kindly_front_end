@@ -1,22 +1,34 @@
 import PlacesAutocomplete from 'react-places-autocomplete';
 import { geocodeByAddress, geocodeByPlaceId, getLatLng} from 'react-places-autocomplete';
 import * as React from "react";
-
+import  "./style.css";
 
 class LocationInput extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = { address: '' };
+    constructor( props ){
+        super( props );
+        this.state = {
+            address: '',
+            lat: '',
+            lng: ''
+        }
     }
 
     handleChange = address => {
-        this.setState({ address });
+        this.setState({
+            address: address
+        });
     };
 
     handleSelect = address => {
+        this.setState({
+            address: address
+        });
         geocodeByAddress(address)
             .then(results => getLatLng(results[0]))
-            .then(latLng => console.log('Success', latLng))
+            .then(latLng => {
+                console.log(latLng);
+                this.setState(latLng)
+            })
             .catch(error => console.error('Error', error));
     };
 
@@ -37,11 +49,11 @@ class LocationInput extends React.Component {
                 searchOptions={this.searchOptions}
             >
                 {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
-                    <div>
+                    <div >
                         <input
                             {...getInputProps({
-                                placeholder: 'Search Places ...',
-                                className: 'location-search-input',
+                                placeholder: 'Začněte psát jmeno ulice, my za Vás doplníme zbytek',
+                                className: 'location-search-input address-input' ,
                             })}
                         />
                         <div className="autocomplete-dropdown-container">
