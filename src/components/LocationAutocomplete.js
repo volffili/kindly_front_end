@@ -19,6 +19,8 @@ class LocationInput extends React.Component {
         });
     };
 
+
+
     handleSelect = address => {
         this.setState({
             address: address
@@ -26,8 +28,12 @@ class LocationInput extends React.Component {
         geocodeByAddress(address)
             .then(results => getLatLng(results[0]))
             .then(latLng => {
-                console.log(latLng);
-                this.setState(latLng)
+                this.setState(latLng);
+                this.props.onAddressSelect({
+                    formatted_address: this.state.address,
+                    lat: this.state.lat,
+                    lng: this.state.lng
+                })
             })
             .catch(error => console.error('Error', error));
     };

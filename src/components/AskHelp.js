@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {withFormik, Form, Field} from 'formik';
 import * as Yup from 'yup';
 import axios from 'axios';
@@ -12,6 +12,14 @@ const AskHelp = ({
     errors,
     touched
 }) =>{
+
+    const [address, setAddress] = useState({});
+
+    const handleAddressChange = address_event => {
+        setAddress(address_event)
+    };
+
+
     return<div className='form-wrapper'>
         <Form className="askhelp-form">
             <FormGroup>
@@ -28,7 +36,7 @@ const AskHelp = ({
             </FormGroup>
             <FormGroup>
                 <Label>Adresa</Label>
-                <Field component={LocationInput} type="text" name="address" placeholder="Začněte psát jmeno ulice, my za Vás doplníme zbytek"/>
+                <LocationInput onAddressSelect={handleAddressChange}/>
             </FormGroup>
             <FormGroup>
                 <Label>Předmět žádosti</Label>
@@ -46,15 +54,16 @@ const AskHelp = ({
 
 export default withFormik({
     validationSchema: Yup.object().shape({
-        // name: Yup.string().matches(/.+\s.+/).required(),
-        // age: Yup.number().min(6).max(200).required(),
-        // phone: Yup.string().required(),
-        // address: Yup.string().required(),
-        // topic: Yup.string().required(),
-        // description: Yup.string().min(50).required()
+        name: Yup.string().required(),
+        age: Yup.number().min(0).max(200).required(),
+        phone: Yup.string().required(),
+        address: Yup.string().required(),
+        topic: Yup.string().required(),
+        description: Yup.string().required()
     }),
     handleSubmit(values){    
-        console.log(values)
+        console.log('values = ', values);
+        console.log('address = ', address);
         axios.get(baseUrl,{ 
             params: { 
                 api_name: "post_help_request",
