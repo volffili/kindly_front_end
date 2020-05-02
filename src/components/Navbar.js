@@ -18,18 +18,9 @@ export default () => {
         <NavbarBrand href="/">Kindly</NavbarBrand>
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
-            <NavItem>
-              <NavLink href="#">Neco1</NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink href="#">Ahoj</NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink href="#">Bye</NavLink>
-            </NavItem>
           </Nav>
           <NavLink>
-            <a href="/feedback"> Pomozte nám!</a>
+            <a href="/feedback"> Pomozte nám vylepšit tuto aplikaci!</a>
           </NavLink>
         </Collapse>
       </Navbar>
