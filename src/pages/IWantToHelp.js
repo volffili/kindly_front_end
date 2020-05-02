@@ -5,9 +5,10 @@ import HelpSummary from "../components/HelpSummary"
 import { baseUrl } from "../Url"
 import Map from "../components/Map"
 import { googleMapsAPIKey } from "../GoogleMapsAPIKey"
+import "./i-want-to-help-style.css";
 
 export default () => {
-  const [helpAsks, setHelpAsks] = useState([])
+  const [helpAsks, setHelpAsks] = useState([]);
 
   useEffect(() => {
     axios
@@ -15,13 +16,20 @@ export default () => {
         params: { api_name: "get_all_help_requests" },
       })
       .then((res) => {
-        setHelpAsks(res.data.result)
+        setHelpAsks(res.data.result);
       })
       .catch((err) => console.error(err))
-  }, [])
+  }, []);
 
   return (
-    <div>
+    <div className="wrapper">
+        <h1>Celkem žádá o pomoc {helpAsks.length} lidí po celé České Republice</h1>
+        <Map
+            googleMapURL={`https://maps.googleapis.com/maps/api/js?key=${googleMapsAPIKey}&libraries=places`}
+            loadingElement={<div style={{ height: `100%` }} />}
+            containerElement={<div style={{ height: `400px` }} />}
+            mapElement={<div style={{ height: `100%` }} />}
+        />
       <Table>
         <thead>
           <tr>
@@ -41,13 +49,7 @@ export default () => {
         </tbody>
       </Table>
 
-      <Map
-        isMarkerShown
-        googleMapURL={`https://maps.googleapis.com/maps/api/js?key=${googleMapsAPIKey}&libraries=places`}
-        loadingElement={<div style={{ height: `100%` }} />}
-        containerElement={<div style={{ height: `400px` }} />}
-        mapElement={<div style={{ height: `100%` }} />}
-      />
+
     </div>
   )
 }

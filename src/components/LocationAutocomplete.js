@@ -41,8 +41,8 @@ class LocationInput extends React.Component {
 
     searchOptions = {
         //Prague location
-        location: new window.google.maps.LatLng(50.08019, 14.4180908),
-        radius: 20000,
+        location: new window.google.maps.LatLng(49.8600624, 15.5860745),
+        radius: 100000,
         types: ['address']
     };
 

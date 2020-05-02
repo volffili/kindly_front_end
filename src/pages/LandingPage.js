@@ -2,7 +2,7 @@ import React from "react"
 import { Button } from "reactstrap"
 import styled from "styled-components/macro"
 import { Link } from "react-router-dom"
-import  "./style.css";
+import "./landing-page-style.css";
 
 const ButtonWrap = styled.div`
   width: 100%;
