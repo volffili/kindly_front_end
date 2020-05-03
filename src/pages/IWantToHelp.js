@@ -4,12 +4,11 @@ import axios from "axios"
 import HelpSummary from "../components/HelpSummary"
 import { baseUrl } from "../Url"
 import Map from "../components/Map"
-import { googleMapsAPIKey } from "../GoogleMapsAPIKey"
 import "./i-want-to-help-style.css"
 import ReactLoading from "react-loading"
 
 export default () => {
-  const [helpAsks, setHelpAsks] = useState([])
+  const [helpRequests, setHelpRequests] = useState([])
 
   useEffect(() => {
     axios
@@ -20,14 +19,14 @@ export default () => {
                 },
       })
       .then((res) => {
-        setHelpAsks(res.data.result)
+        setHelpRequests(res.data.result)
       })
       .catch((err) => console.error(err))
-  }, [])
+  }, []);
 
   return (
     <div className="wrapper">
-      {helpAsks.length === 0 ? (
+      {helpRequests.length === 0 ? (
         <div className="loading-spinner">
           <ReactLoading
             type="spin"
@@ -39,30 +38,28 @@ export default () => {
       ) : (
         <div>
           <h1>
-            Celkem žádá o pomoc {helpAsks.length} lidí po celé České Republice
+            Celkem žádá o pomoc {helpRequests.length} lidí po celé České Republice
           </h1>
           <Map
-            googleMapURL={`https://maps.googleapis.com/maps/api/js?key=${googleMapsAPIKey}&libraries=places`}
             loadingElement={<div style={{ height: `100%` }} />}
             containerElement={<div style={{ height: `400px` }} />}
             mapElement={<div style={{ height: `100%` }} />}
-            helpRequests={helpAsks}
+            helpRequests={helpRequests}
           />
           <h1>Seznam inzerátů</h1>
           <Table>
             <thead>
               <tr>
-                <th>Name</th>
-                <th>Address</th>
+                <th>Den zadání</th>
+                <th>Předmět žádosti</th>
+                <th>Adresa</th>
                 <th></th>
               </tr>
             </thead>
             <tbody>
-              {helpAsks.map((ask) => (
+              {helpRequests.map((helpRequest) => (
                 <HelpSummary
-                  key={ask.request_id}
-                  topic={ask.request_topic}
-                  address={ask.requester_address}
+                  helpRequest={helpRequest}
                 />
               ))}
             </tbody>

@@ -12,7 +12,7 @@ export default () => {
 
   const handleAddressChange = (address_event) => {
     setAddress(address_event)
-  }
+  };
 
   const validationSchema = Yup.object().shape({
     name: Yup.string().required("Jméno je povinné pole"),
@@ -22,7 +22,7 @@ export default () => {
     phone_number: Yup.string().required("Telefonní číslo je povinné pole"),
     request_topic: Yup.string().required("Předmět je povinné pole"),
     request_description: Yup.string().required("Popis žádosti je povinné pole"),
-  })
+  });
 
   const initialValues = {
     name: "",
@@ -30,7 +30,7 @@ export default () => {
     phone_number: "",
     request_topic: "",
     request_description: "",
-  }
+  };
 
   const onSubmit = (values) => {
     let query_params = {
@@ -43,13 +43,13 @@ export default () => {
       requester_address_lng: address.lng,
       request_topic: values.request_topic,
       request_details: values.request_description,
-    }
+    };
     console.log("Query Params = ", query_params)
 
     axios.get(baseUrl, {
       params: query_params,
     })
-  }
+  };
 
   return (
     <div className="form-wrapper">

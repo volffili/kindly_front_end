@@ -5,6 +5,7 @@ import IWantToHelp from "./pages/IWantToHelp"
 import LandingPage from "./pages/LandingPage"
 import Feedback from "./components/Feedback"
 import Navbar from "./components/Navbar"
+import HelpRequestDetail from "./components/HelpRequestDetail";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <Route path="/ineedhelp" component={INeedHelp} />
       <Route path="/iwanttohelp" component={IWantToHelp} />
       <Route path="/feedback" component={Feedback} />
+      <Route path="/details/:request_id" component={HelpRequestDetail} />
     </Router>
   )
 }
