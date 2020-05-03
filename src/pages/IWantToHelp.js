@@ -14,7 +14,10 @@ export default () => {
   useEffect(() => {
     axios
       .get(baseUrl, {
-        params: { api_name: "get_all_help_requests" },
+        params: { api_name: "get_help_requests",
+                  offset: 0,
+                  row_count: 20
+                },
       })
       .then((res) => {
         setHelpAsks(res.data.result);
