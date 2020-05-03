@@ -3,11 +3,10 @@ import React, {useEffect} from "react"
 export default (props) => {
 
     useEffect(() => {
-        console.log('Viewing request with ID = ', props.match.params.request_id)
     }, []);
 
     return <div>
-        Details works
+        Looking at details of help request with ID = {props.match.params.request_id}
     </div>
 }
 
