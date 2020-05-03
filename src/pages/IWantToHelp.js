@@ -16,7 +16,7 @@ export default () => {
       .get(baseUrl, {
         params: { api_name: "get_help_requests",
                   offset: 0,
-                  row_count: 20
+                  row_count: 1000
                 },
       })
       .then((res) => {

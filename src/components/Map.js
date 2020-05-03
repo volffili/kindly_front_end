@@ -7,7 +7,7 @@ import {
 } from "react-google-maps"
 import React, { useEffect, useState } from "react"
 
-const Map = withScriptjs(
+const Map =
   withGoogleMap((props) => {
     useEffect(() => {}, [])
 
@@ -22,14 +22,13 @@ const Map = withScriptjs(
         ))}
       </GoogleMap>
     )
-  })
-)
+  });
 
 const CustomMarker = (props) => {
-  const [isMarkerOpen, setMarkerIsOpen] = useState(false)
+  const [isMarkerOpen, setMarkerIsOpen] = useState(false);
   useEffect(() => {
-    console.log("Hello Custom marker with data = ", props.helpRequest)
-  }, [])
+
+  }, []);
 
   return (
     <Marker
