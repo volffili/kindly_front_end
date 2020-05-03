@@ -13,20 +13,20 @@ const ButtonWrap = styled.div`
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-`
+`;
 
 const SLink = styled(Link)`
   margin: 0 10%;
   flex-grow: 1;
-`
+`;
 
 const SButton = styled(Button)`
   width: 100%;
   height: 70px;
-`
+`;
 
-const imageWidth = "80%"
-const imageHeight = 500
+const imageWidth = "80%";
+const imageHeight = 500;
 
 export default () => (
   <div>

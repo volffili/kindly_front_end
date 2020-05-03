@@ -2,7 +2,6 @@ import {
   withGoogleMap,
   GoogleMap,
   Marker,
-  withScriptjs,
   InfoWindow,
 } from "react-google-maps"
 import React, { useEffect, useState } from "react"
