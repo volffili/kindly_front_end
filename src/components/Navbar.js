@@ -1,12 +1,5 @@
 import React, { useState } from "react"
-import {
-  Navbar,
-  NavbarBrand,
-  Nav,
-  NavItem,
-  Collapse,
-  NavLink,
-} from "reactstrap"
+import { Navbar, NavbarBrand, Nav, NavItem, Collapse, NavLink } from "reactstrap"
 
 export default () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -14,7 +7,7 @@ export default () => {
 
   return (
     <div>
-      <Navbar color="light" light expand="md">
+      <Navbar color="light" light expand="md" fixed="top">
         <NavbarBrand href="/">Kindly</NavbarBrand>
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar></Nav>

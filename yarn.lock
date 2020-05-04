@@ -2001,6 +2001,13 @@
     "@svgr/plugin-svgo" "^4.3.1"
     loader-utils "^1.2.3"
 
+"@tanem/svg-injector@^8.0.49":
+  version "8.0.49"
+  resolved "https://registry.yarnpkg.com/@tanem/svg-injector/-/svg-injector-8.0.49.tgz#39433f40fc7b240a79e1f4091ea26665a005b22c"
+  integrity sha512-BxylJBsXvPJsc9U07mcaFaeDLGeVPSBm5AhqLdWcQjD+w+C+0xgflYgJXFCRBlg3dNI9sV28E+Swkxg/X9Rwlg==
+  dependencies:
+    "@babel/runtime" "^7.9.2"
+
 "@testing-library/dom@^6.15.0":
   version "6.16.0"
   resolved "https://registry.yarnpkg.com/@testing-library/dom/-/dom-6.16.0.tgz#04ada27ed74ad4c0f0d984a1245bb29b1fd90ba9"
@@ -7424,6 +7431,11 @@ lines-and-columns@^1.1.6:
   resolved "https://registry.yarnpkg.com/lines-and-columns/-/lines-and-columns-1.1.6.tgz#1c00c743b433cd0a4e80758f7b64a57440d9ff00"
   integrity sha1-HADHQ7QzzQpOgHWPe2SldEDZ/wA=
 
+list@^2.0.19:
+  version "2.0.19"
+  resolved "https://registry.yarnpkg.com/list/-/list-2.0.19.tgz#370a3d7d3e24cfd5ced2c89cda2baf28e31e2830"
+  integrity sha512-nnVaRp4RaMAQkCpypTThsdxKqgPMiSwJq93eAm2/IbpUa8sd04XKBhkKu+bMk63HmdjK8b8Cuh4xARHWX2ye/Q==
+
 load-json-file@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/load-json-file/-/load-json-file-2.0.0.tgz#7947e42149af80d696cbf797bcaabcfe1fe29ca8"
@@ -10008,6 +10020,15 @@ react-scripts@3.4.1:
     workbox-webpack-plugin "4.3.1"
   optionalDependencies:
     fsevents "2.1.2"
+
+react-svg@^11.0.21:
+  version "11.0.21"
+  resolved "https://registry.yarnpkg.com/react-svg/-/react-svg-11.0.21.tgz#9f5c080e59f053ed1e63115e3437c84c4bf59be1"
+  integrity sha512-bIUxtvSUoWz6wjZCthrUkSdEBpaw4IYWG0+T2u66Voidv0WKETT5F9ic99+TufwQq4/EiR68rIxZaOEAYW2K/g==
+  dependencies:
+    "@babel/runtime" "^7.9.2"
+    "@tanem/svg-injector" "^8.0.49"
+    prop-types "^15.7.2"
 
 react-transition-group@^2.3.1:
   version "2.9.0"

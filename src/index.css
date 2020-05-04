@@ -1,8 +1,29 @@
+/*Here are the most basic styles for resetting margin, padding and setting max width and heights
+Try to not use regular css, use styled components for additional styling if possible*/
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
 html,
 body {
   height: 100%;
+  width: 100%;
 }
 
 #root {
   height: 100%;
+  width: 100%;
+}
+
+#demo-canvas {
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: -5;
+}
+
+svg {
+  fill-opacity: 0.7;
 }

@@ -2,50 +2,54 @@ import React from "react"
 import { Button } from "reactstrap"
 import styled from "styled-components/macro"
 import { Link } from "react-router-dom"
-import "./landing-page-style.css"
+import { ReactSVG } from "react-svg"
+import lovepalms_svg from "../lovepalms_minified.svg"
+import lovepalms_jpg from "../lovepalms.jpg"
 
 const ButtonWrap = styled.div`
   width: 100%;
   height: 100%;
   padding: 0;
-  margin-top: 2em;
-  margin-bottom: 2em;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-`;
+`
 
 const SLink = styled(Link)`
-  margin: 0 10%;
+  margin: 0 15%;
   flex-grow: 1;
-`;
+`
 
 const SButton = styled(Button)`
   width: 100%;
   height: 70px;
-`;
+`
 
-const imageWidth = "80%";
-const imageHeight = 500;
+const Img100 = styled.img`
+  width: 100%;
+`
+
+const SvgContainer = styled.div`
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 45%;
+  z-index: -20;
+`
+
+const PageContainer = styled.div`
+  position: relative;
+  width: 100%;
+  height: 100%;
+`
 
 export default () => (
-  <div>
-    <h1
-      style={{
-        textAlign: "center",
-      }}
-    >
-      Kindly
-    </h1>
-    <img
-      src="https://www.competitionsciences.org/wp-content/uploads/2018/06/cooperation.jpg"
-      height={imageHeight}
-      width={imageWidth}
-    />
+  <PageContainer>
     <ButtonWrap>
       <SLink to="/iwanttohelp">
         <SButton outline color="secondary" size="lg">
-          Nabízím svou pomoc
+          Nabízím pomoc
         </SButton>
       </SLink>
       <SLink to="/ineedhelp">
@@ -54,10 +58,18 @@ export default () => (
         </SButton>
       </SLink>
     </ButtonWrap>
-    <img
-      src="https://g8fip1kplyr33r3krz5b97d1-wpengine.netdna-ssl.com/wp-content/uploads/2019/11/GettyImages-1182819158-714x476.jpg"
-      height={imageHeight}
-      width={imageWidth}
-    />
-  </div>
+
+    <SvgContainer>
+      <ReactSVG
+        src={lovepalms_svg}
+        afterInjection={(error) => {
+          if (error) {
+            console.error(error)
+            return
+          }
+        }}
+        loading={() => <Img100 src={lovepalms_jpg} />}
+      />
+    </SvgContainer>
+  </PageContainer>
 )

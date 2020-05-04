@@ -1,29 +1,27 @@
-
-.form-wrapper{
-    margin-top: 3rem;
-    width: 50%;
-    margin-left: 25%;
+/*TODO: move to styled components*/
+.form-wrapper {
+  margin-top: 3rem;
+  width: 50%;
+  margin-left: 25%;
 }
-
 
 input {
-    width: 100%;
-    height: 3em;
-    border: 2px solid lightgray;
-    border-radius: 5px;
-    padding-left: 1rem;
+  width: 100%;
+  height: 3em;
+  border: 2px solid lightgray;
+  border-radius: 5px;
+  padding-left: 1rem;
 }
 
-.input-label{
-    font-size: 1.5rem;
-    margin-bottom: 2px
+.input-label {
+  font-size: 1.5rem;
+  margin-bottom: 2px;
 }
 
-.submit-button{
-    margin-top: 2em;
+.submit-button {
+  margin-top: 2em;
 }
 
-
-.validation-error{
-    color: red;
+.validation-error {
+  color: red;
 }
