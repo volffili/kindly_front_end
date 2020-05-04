@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react"
 import axios from "axios";
 import {baseUrl} from "../Url";
 import ReactLoading from "react-loading";
+import Map from "./Map";
 
 export default (props) => {
   const [helpRequest, setHelpRequest] = useState(null);
@@ -31,7 +32,16 @@ export default (props) => {
           width={"30%"}
         />
       </div> :
-      helpRequest.request_topic
+      <div>
+        <Map
+          zoom={12}
+          center={{ lat: parseFloat(helpRequest.requester_address_lat), lng: parseFloat(helpRequest.requester_address_lng) }}
+          containerElement={<div style={{ height: `400px` }} />}
+          mapElement={<div style={{ height: `100%` }} />}
+          helpRequests={[helpRequest]}
+        />
+      </div>
+      
     }
   </div>
 }

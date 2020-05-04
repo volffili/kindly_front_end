@@ -1,9 +1,7 @@
 import React, {useEffect} from "react"
 import { Button } from "reactstrap"
-import { useHistory } from 'react-router-dom';
 
 export default (props) => {
-  const history = useHistory();
 
   useEffect(() => {
   }, []);

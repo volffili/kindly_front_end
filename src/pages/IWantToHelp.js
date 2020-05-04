@@ -41,6 +41,8 @@ export default () => {
             Celkem žádá o pomoc {helpRequests.length} lidí po celé České Republice
           </h1>
           <Map
+            zoom={13}
+            center={{ lat: 50.0864771, lng: 14.4114366 }}
             containerElement={<div style={{ height: `400px` }} />}
             mapElement={<div style={{ height: `100%` }} />}
             helpRequests={helpRequests}

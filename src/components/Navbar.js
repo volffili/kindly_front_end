@@ -19,7 +19,7 @@ export default () => {
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar></Nav>
           <NavLink>
-            <a href="/feedback"> Pomozte nám vylepšit tuto aplikaci!</a>
+            <a href="/feedback"> Pomozte nám pomáhat!</a>
           </NavLink>
         </Collapse>
       </Navbar>
