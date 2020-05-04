@@ -1,3 +1,8 @@
+Try the web [here](https://volffili.github.io/kindly_front_end/)!
+
+Run "yarn deploy" in command line to build and upload current version of master. The result will be available at the link above (https://volffili.github.io/kindly_front_end/).
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
