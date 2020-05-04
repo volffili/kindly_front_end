@@ -8,7 +8,7 @@ import LocationInput from "./LocationAutocomplete"
 import "./style.css"
 
 export default () => {
-  const [address, setAddress] = useState({})
+  const [address, setAddress] = useState({});
 
   const handleAddressChange = (address_event) => {
     setAddress(address_event)
