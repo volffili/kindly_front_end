@@ -31,6 +31,10 @@ const OnlyHighResDiv = styled.div`
   }
 `
 
+const FinalRow = styled(Row)`
+  padding: 50px 0;
+`
+
 export default () => (
   <>
     <IntroContainer fluid={true}>
@@ -74,5 +78,15 @@ export default () => (
         />
       </SvgContainer>
     </OnlyHighResDiv>
+
+    <FinalRow className="justify-content-center">
+      <Col sm="10" className="my-auto" align="center">
+        <h3>
+          Tady je nejaky dalsi text. Tohle jsou nasi sponzori. Bla bla bla bla bla bla.{" "}
+          <a href="/feedback">Muzete nam taky pomoct!</a> Dalsi kecy bla bla bla bla. Pomahejte si. Tecka. Lorem Ipsum.
+          Cau Tommy, nechces pomoct vykopat nejaky kameni?
+        </h3>
+      </Col>
+    </FinalRow>
   </>
 )
