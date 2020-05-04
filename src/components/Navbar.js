@@ -10,10 +10,17 @@ export default () => {
       <Navbar color="light" light expand="md" fixed="top">
         <NavbarBrand href="/">Kindly</NavbarBrand>
         <Collapse isOpen={isOpen} navbar>
-          <Nav className="mr-auto" navbar></Nav>
-          <NavLink>
-            <a href="/feedback"> Pomozte nám vylepšit tuto aplikaci!</a>
-          </NavLink>
+          <Nav className="mr-auto" navbar>
+            <NavItem>
+              <NavLink href="/iwanttohelp">Chci pomoct</NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink href="/ineedhelp">Potřebuji pomoct</NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink href="/feedback">Kontakt</NavLink>
+            </NavItem>
+          </Nav>
         </Collapse>
       </Navbar>
     </div>
