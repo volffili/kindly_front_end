@@ -1,25 +1,27 @@
 {
   "files": {
-    "main.css": "/kindly_front_end/static/css/main.9283ce01.chunk.css",
-    "main.js": "/kindly_front_end/static/js/main.26a5a187.chunk.js",
-    "main.js.map": "/kindly_front_end/static/js/main.26a5a187.chunk.js.map",
+    "main.css": "/kindly_front_end/static/css/main.b93d2cab.chunk.css",
+    "main.js": "/kindly_front_end/static/js/main.d6481b92.chunk.js",
+    "main.js.map": "/kindly_front_end/static/js/main.d6481b92.chunk.js.map",
     "runtime-main.js": "/kindly_front_end/static/js/runtime-main.0bb26529.js",
     "runtime-main.js.map": "/kindly_front_end/static/js/runtime-main.0bb26529.js.map",
     "static/css/2.17e5ed98.chunk.css": "/kindly_front_end/static/css/2.17e5ed98.chunk.css",
-    "static/js/2.b93481c0.chunk.js": "/kindly_front_end/static/js/2.b93481c0.chunk.js",
-    "static/js/2.b93481c0.chunk.js.map": "/kindly_front_end/static/js/2.b93481c0.chunk.js.map",
+    "static/js/2.b4faa22e.chunk.js": "/kindly_front_end/static/js/2.b4faa22e.chunk.js",
+    "static/js/2.b4faa22e.chunk.js.map": "/kindly_front_end/static/js/2.b4faa22e.chunk.js.map",
     "index.html": "/kindly_front_end/index.html",
-    "precache-manifest.e6c1d3080c04452faf67a0c82eefb9ea.js": "/kindly_front_end/precache-manifest.e6c1d3080c04452faf67a0c82eefb9ea.js",
+    "precache-manifest.da096b1818cdc76e37dc1ed6c90463e8.js": "/kindly_front_end/precache-manifest.da096b1818cdc76e37dc1ed6c90463e8.js",
     "service-worker.js": "/kindly_front_end/service-worker.js",
     "static/css/2.17e5ed98.chunk.css.map": "/kindly_front_end/static/css/2.17e5ed98.chunk.css.map",
-    "static/css/main.9283ce01.chunk.css.map": "/kindly_front_end/static/css/main.9283ce01.chunk.css.map",
-    "static/js/2.b93481c0.chunk.js.LICENSE.txt": "/kindly_front_end/static/js/2.b93481c0.chunk.js.LICENSE.txt"
+    "static/css/main.b93d2cab.chunk.css.map": "/kindly_front_end/static/css/main.b93d2cab.chunk.css.map",
+    "static/js/2.b4faa22e.chunk.js.LICENSE.txt": "/kindly_front_end/static/js/2.b4faa22e.chunk.js.LICENSE.txt",
+    "static/media/lovepalms.jpg": "/kindly_front_end/static/media/lovepalms.74439763.jpg",
+    "static/media/lovepalms_minified.svg": "/kindly_front_end/static/media/lovepalms_minified.cb992957.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.0bb26529.js",
     "static/css/2.17e5ed98.chunk.css",
-    "static/js/2.b93481c0.chunk.js",
-    "static/css/main.9283ce01.chunk.css",
-    "static/js/main.26a5a187.chunk.js"
+    "static/js/2.b4faa22e.chunk.js",
+    "static/css/main.b93d2cab.chunk.css",
+    "static/js/main.d6481b92.chunk.js"
   ]
 }
