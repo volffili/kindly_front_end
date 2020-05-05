@@ -10,7 +10,7 @@ export default ({ errors, touched }) => {
   const validationSchema = Yup.object().shape({
     requester_email: Yup.string()
       .required("Email je povinný")
-      .email("Neplatný email. Systém očekává ")
+      .email("Neplatný email. Systém očekává formát honza.novak@seznam.cz")
       .max(100, "Email je příliš dlouhý"),
     feedback_topic: Yup.string()
       .required("Chybí předmět"),

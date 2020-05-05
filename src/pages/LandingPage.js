@@ -5,35 +5,35 @@ import { Link } from "react-router-dom"
 import { ReactSVG } from "react-svg"
 import lovepalms_svg from "../lovepalms_minified.svg"
 import lovepalms_jpg from "../lovepalms.jpg"
-import { Container, Row, Col } from "reactstrap"
+import { Row, Col } from "reactstrap"
 
 const Img100 = styled.img`
   width: 100%;
-`
+`;
 const SvgContainer = styled.div`
   margin-top: -20%;
   z-index: -20;
-`
+`;
 
 const IntroContainer = styled.div`
   height: 100%;
   margin-top: 56px;
   padding: 20px;
-`
+`;
 
 const SButton = styled(Button)`
   margin: 25px 0;
-`
+`;
 
 const OnlyHighResDiv = styled.div`
   @media (max-width: 576px) {
     display: none !important;
   }
-`
+`;
 
 const FinalRow = styled(Row)`
   padding: 50px 0;
-`
+`;
 
 export default () => (
   <>

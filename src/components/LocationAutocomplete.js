@@ -60,7 +60,7 @@ class LocationInput extends React.Component {
             <input
               {...getInputProps({
                 placeholder:
-                  "Začněte psát jmeno ulice, my za Vás doplníme zbytek",
+                  "Začněte psát jmeno ulice, my za Vás doplníme zbytek      (nepovinné pole)",
                 className: "location-search-input address-input",
               })}
             />

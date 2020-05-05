@@ -17,8 +17,8 @@ export default () => {
   const validationSchema = Yup.object().shape({
     name: Yup.string().required("Jméno je povinné pole"),
     age: Yup.number()
-      .typeError("Věk musí být číslo")
-      .required("Věk je povinné pole"),
+      .typeError("Věk musí být číslo"),
+    email: Yup.string().email("Neplatný email. Systém očekává formát honza.novak@seznam.cz"),
     phone_number: Yup.string().required("Telefonní číslo je povinné pole"),
     request_topic: Yup.string().required("Předmět je povinné pole"),
     request_description: Yup.string().required("Popis žádosti je povinné pole"),
@@ -28,6 +28,7 @@ export default () => {
     name: "",
     age: "",
     phone_number: "",
+    email: "",
     request_topic: "",
     request_description: "",
   };
@@ -37,6 +38,7 @@ export default () => {
       api_name: "post_help_request",
       requester_name: values.name,
       requester_age: values.age,
+      requester_email: values.email,
       requester_phone_number: values.phone_number,
       requester_address: address.formatted_address,
       requester_address_lat: address.lat,
@@ -69,7 +71,7 @@ export default () => {
                   id="name"
                   name="name"
                   type="text"
-                  placeholder="Křestní jméno a příjmení"
+                  placeholder="Křestní jméno a příjmení  (povinné pole)"
                 />
               </div>
               {errors.name && touched.name ? (
@@ -85,11 +87,27 @@ export default () => {
                   id="age"
                   name="age"
                   type="text"
-                  placeholder="Počet roků"
+                  placeholder="Počet roků   (nepovinné pole)"
                 />
               </div>
               {errors.age && touched.age ? (
                 <div className="validation-error">{errors.age}</div>
+              ) : null}
+            </FormGroup>
+            <FormGroup>
+              <div className="input-label">
+                <span>Email</span>
+              </div>
+              <div>
+                <Field
+                  id="email"
+                  name="email"
+                  type="text"
+                  placeholder="Ve formátu honza@novak.cz     (nepovinné pole)"
+                />
+              </div>
+              {errors.email && touched.email ? (
+                <div className="validation-error">{errors.email}</div>
               ) : null}
             </FormGroup>
             <FormGroup>
@@ -101,7 +119,7 @@ export default () => {
                   id="phone_number"
                   name="phone_number"
                   type="text"
-                  placeholder="Ve formátu 720123789"
+                  placeholder="Ve formátu 720123789      (povinné pole)"
                 />
               </div>
               {errors.phone_number && touched.phone_number ? (
@@ -113,9 +131,6 @@ export default () => {
                 <span>Adresa</span>
               </div>
               <LocationInput onAddressSelect={handleAddressChange} />
-              {address ? null : (
-                <div className="validation-error">Adresa je povinné pole</div>
-              )}
             </FormGroup>
             <FormGroup>
               <div className="input-label">
@@ -126,7 +141,7 @@ export default () => {
                   id="request_topic"
                   name="request_topic"
                   type="text"
-                  placeholder="Např. Venčení psa"
+                  placeholder="Např. Venčení psa   (povinné pole)"
                 />
               </div>
               {errors.request_topic && touched.request_topic ? (
@@ -142,7 +157,7 @@ export default () => {
                   id="request_description"
                   name="request_description"
                   type="text"
-                  placeholder="Např. Mám 2 psy typu čivava které je potřeba venčit 2-krát denně, ráno a večer"
+                  placeholder="Např. Mám 2 psy typu čivava které je potřeba venčit 2-krát denně, ráno a večer   (povinné pole)"
                 />
               </div>
               {errors.request_description && touched.request_description ? (
