@@ -17,7 +17,7 @@ export default (props) => {
       <td>{props.helpRequest.request_topic}</td>
       <td>{props.helpRequest.requester_address}</td>
       <td>
-        <Button color="success" onClick={redirectToDetails}>
+        <Button color="primary" onClick={redirectToDetails}>
           Více
         </Button>
       </td>

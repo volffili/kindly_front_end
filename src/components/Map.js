@@ -9,7 +9,8 @@ import {Link} from "react-router-dom";
 
 const Map =
   withGoogleMap((props) => {
-    useEffect(() => {}, [])
+    useEffect(() => {
+    }, []);
 
     return (
       <GoogleMap
@@ -18,7 +19,7 @@ const Map =
         defaultCenter={{ lat: 49.8600624, lng: 15.5860745 }}
       >
         {props.helpRequests.map((request) => (
-          <CustomMarker helpRequest={request} />
+          <CustomMarker helpRequest={request} link={props.link}/>
         ))}
       </GoogleMap>
     )
@@ -43,7 +44,7 @@ const CustomMarker = (props) => {
           <div>
             <h3>{props.helpRequest.request_topic}</h3>
             <h5>{props.helpRequest.request_details}</h5>
-            <h6>Více informaci <Link to={`/details/${props.helpRequest.request_id}`} target="_blank">zde</Link></h6>
+            {props.link ? <h6>Více informaci <Link to={`/details/${props.helpRequest.request_id}`} target="_blank">zde</Link></h6> : null}
           </div>
         </InfoWindow>
       )}

@@ -1,7 +1,6 @@
 import PlacesAutocomplete from "react-places-autocomplete"
 import {
   geocodeByAddress,
-  geocodeByPlaceId,
   getLatLng,
 } from "react-places-autocomplete"
 import * as React from "react"
@@ -9,24 +8,24 @@ import "./style.css"
 
 class LocationInput extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       address: "",
       lat: "",
       lng: "",
-    }
+    };
   }
 
   handleChange = (address) => {
     this.setState({
       address: address,
     })
-  }
+  };
 
   handleSelect = (address) => {
     this.setState({
       address: address,
-    })
+    });
     geocodeByAddress(address)
       .then((results) => getLatLng(results[0]))
       .then((latLng) => {
@@ -38,14 +37,14 @@ class LocationInput extends React.Component {
         })
       })
       .catch((error) => console.error("Error", error))
-  }
+  };
 
   searchOptions = {
     //Prague location
     location: new window.google.maps.LatLng(49.8600624, 15.5860745),
     radius: 100000,
     types: ["address"],
-  }
+  };
 
   render() {
     return (
@@ -69,7 +68,7 @@ class LocationInput extends React.Component {
               {suggestions.map((suggestion) => {
                 const className = suggestion.active
                   ? "suggestion-item--active"
-                  : "suggestion-item"
+                  : "suggestion-item";
                 // inline style for demonstration purpose
                 const style = suggestion.active
                   ? { backgroundColor: "#fafafa", cursor: "pointer" }
