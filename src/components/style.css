@@ -1,13 +1,5 @@
 /*TODO: move to styled components*/
-.form-wrapper {
-  margin-top: 8%;
-  width: 50%;
-  margin-left: 25%;
-}
 
-h2 {
-  text-align: center;
-}
 
 input {
   width: 100%;

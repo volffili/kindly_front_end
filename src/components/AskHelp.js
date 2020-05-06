@@ -6,6 +6,7 @@ import { baseUrl } from "../Url"
 import { Button, Label, FormGroup } from "reactstrap"
 import LocationInput from "./LocationAutocomplete"
 import "./style.css"
+import Instructions from "./Instructions";
 
 export default () => {
   const [address, setAddress] = useState({});
@@ -54,7 +55,18 @@ export default () => {
   };
 
   return (
-    <div className="form-wrapper">
+    <div>
+      <Instructions
+        header="Čím Vám ostatní mohou pomoci?"
+        textRows={[
+          'Lorem ipsumdsfsdfsaf',
+          'sadmfosdanfsdofnsdfn'
+        ]}
+      />
+      <div style={{
+        width: '50%',
+        marginLeft: '25%'
+      }}>
       <Formik
         initialValues={initialValues}
         validationSchema={validationSchema}
@@ -176,6 +188,7 @@ export default () => {
           </Form>
         )}
       </Formik>
+      </div>
     </div>
   )
 }
