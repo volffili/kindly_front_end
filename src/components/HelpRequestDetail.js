@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from "react"
 import axios from "axios";
 import {baseUrl} from "../Url";
-import ReactLoading from "react-loading";
 import Map from "./Map";
 import "./style.css"
 import {Button} from "reactstrap";

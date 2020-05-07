@@ -8,18 +8,22 @@ import "./i-want-to-help-style.css"
 import Loading from "../components/Loading";
 
 export default () => {
-  const [helpRequests, setHelpRequests] = useState([])
+  const [helpRequests, setHelpRequests] = useState([]);
+  const [totalCount, setTotalCount] = useState([]);
+  
+  const pageSize = 10;
 
   useEffect(() => {
     axios
       .get(baseUrl, {
         params: { api_name: "get_help_requests",
                   offset: 0,
-                  row_count: 1000
+                  row_count: pageSize
                 },
       })
       .then((res) => {
-        setHelpRequests(res.data.result)
+        setHelpRequests(res.data.result.help_requests)
+        setTotalCount(res.data.result.count)
       })
       .catch((err) => console.error(err))
   }, []);
@@ -31,7 +35,7 @@ export default () => {
       ) : (
         <div className="wrapper">
           <h1>
-            Celkem žádá o pomoc {helpRequests.length} lidí po celé České Republice
+            Celkem žádá o pomoc {totalCount} lidí po celé České Republice
           </h1>
           <Map
             zoom={13}
@@ -41,7 +45,7 @@ export default () => {
             helpRequests={helpRequests}
             link={true}
           />
-          <h1>Seznam inzerátů</h1>
+          <h1>Seznam inzerátů ({pageSize} / {totalCount})</h1>
           <Table>
             <thead>
               <tr>
