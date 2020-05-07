@@ -6,6 +6,7 @@ import Map from "./Map";
 import "./style.css"
 import {Button} from "reactstrap";
 import Instructions from "./Instructions";
+import Loading from "./Loading";
 
 export default (props) => {
   const [helpRequest, setHelpRequest] = useState(null);
@@ -29,16 +30,12 @@ export default (props) => {
   
   
   
-  return <div>
+  return <div style={{
+    height: '100%'
+  }}>
     {helpRequest === null ?
-      <div className="loading-spinner">
-        <ReactLoading
-          type="spin"
-          color="black"
-          height={"30%"}
-          width={"30%"}
-        />
-      </div> :
+      <Loading/>
+      :
       <div>
         <Instructions
           header="Jak můžete Vy pomoci ostatním?"
@@ -47,7 +44,10 @@ export default (props) => {
             'Lorem Ipsum sdufsdfsdfsd'
           ]}
         />
-        <div className="wrapper">
+        <div className="wrapper" style={{
+          display: 'flex',
+          justifyContent: 'space-between'
+        }}>
           <div className="description">
             <h1>
               {helpRequest.request_topic}

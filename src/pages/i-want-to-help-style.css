@@ -3,17 +3,11 @@
   width: 80%;
   margin-left: 10%;
   margin-top: 8%;
-  display: flex;
-  justify-content: space-between;
+
 }
 
 h1 {
   text-align: center;
   margin-top: 20px;
   margin-bottom: 20px;
-}
-
-.loading-spinner {
-  margin-left: 40%;
-  margin-top: 40%;
 }
