@@ -9,25 +9,26 @@ export default () => {
   return (
     <div>
       <Navbar color="light" light expand="md" fixed="top">
-        <Link to="/">
-          <NavbarBrand>Kindly</NavbarBrand>
-        </Link>
+        <NavbarBrand tag={Link} to="/">
+          Kindly
+        </NavbarBrand>
+
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
             <NavItem>
-              <Link to="/iwanttohelp">
-                <NavLink>Nabízím pomoc</NavLink>
-              </Link>
+              <NavLink tag={Link} to="/iwanttohelp">
+                Nabízím pomoc
+              </NavLink>
             </NavItem>
             <NavItem>
-              <Link to="/ineedhelp">
-                <NavLink>Žádám o pomoc</NavLink>
-              </Link>
+              <NavLink tag={Link} to="/ineedhelp">
+                Žádám o pomoc
+              </NavLink>
             </NavItem>
             <NavItem>
-              <Link to="/feedback">
-                <NavLink>Kontakt</NavLink>
-              </Link>
+              <NavLink tag={Link} to="/feedback">
+                Kontakt
+              </NavLink>
             </NavItem>
           </Nav>
         </Collapse>
