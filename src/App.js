@@ -10,7 +10,7 @@ import styled from "styled-components/macro"
 
 function App() {
   return (
-    <Router>
+    <Router basename={process.env.PUBLIC_URL}>
       <Navbar />
       <Route path="/" exact component={LandingPage} />
       <Route path="/ineedhelp" component={INeedHelp} />
