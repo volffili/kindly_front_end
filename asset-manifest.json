@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/kindly_front_end/static/css/main.a41e1762.chunk.css",
-    "main.js": "/kindly_front_end/static/js/main.315aad2c.chunk.js",
-    "main.js.map": "/kindly_front_end/static/js/main.315aad2c.chunk.js.map",
+    "main.js": "/kindly_front_end/static/js/main.e087c7a9.chunk.js",
+    "main.js.map": "/kindly_front_end/static/js/main.e087c7a9.chunk.js.map",
     "runtime-main.js": "/kindly_front_end/static/js/runtime-main.0bb26529.js",
     "runtime-main.js.map": "/kindly_front_end/static/js/runtime-main.0bb26529.js.map",
     "static/css/2.17e5ed98.chunk.css": "/kindly_front_end/static/css/2.17e5ed98.chunk.css",
     "static/js/2.01872ba0.chunk.js": "/kindly_front_end/static/js/2.01872ba0.chunk.js",
     "static/js/2.01872ba0.chunk.js.map": "/kindly_front_end/static/js/2.01872ba0.chunk.js.map",
     "index.html": "/kindly_front_end/index.html",
-    "precache-manifest.cf26f2fb7a59b6a6b491596e93e2d69e.js": "/kindly_front_end/precache-manifest.cf26f2fb7a59b6a6b491596e93e2d69e.js",
+    "precache-manifest.d0f75a2eb48dee6de08aa57e03449aca.js": "/kindly_front_end/precache-manifest.d0f75a2eb48dee6de08aa57e03449aca.js",
     "service-worker.js": "/kindly_front_end/service-worker.js",
     "static/css/2.17e5ed98.chunk.css.map": "/kindly_front_end/static/css/2.17e5ed98.chunk.css.map",
     "static/css/main.a41e1762.chunk.css.map": "/kindly_front_end/static/css/main.a41e1762.chunk.css.map",
@@ -22,6 +22,6 @@
     "static/css/2.17e5ed98.chunk.css",
     "static/js/2.01872ba0.chunk.js",
     "static/css/main.a41e1762.chunk.css",
-    "static/js/main.315aad2c.chunk.js"
+    "static/js/main.e087c7a9.chunk.js"
   ]
 }
