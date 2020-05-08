@@ -4,7 +4,6 @@ import axios from "axios"
 import HelpSummary from "../components/HelpSummary"
 import { baseUrl } from "../Url"
 import Map from "../components/Map"
-import "./i-want-to-help-style.css"
 import Loading from "../components/Loading"
 import Pagination from "../components/Pagination"
 

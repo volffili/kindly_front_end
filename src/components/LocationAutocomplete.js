@@ -3,6 +3,7 @@ import { geocodeByAddress, getLatLng } from "react-places-autocomplete"
 import React, { useState } from "react"
 import { ListGroup, ListGroupItem } from "reactstrap"
 import styled from "styled-components/macro"
+import { Input } from "reactstrap"
 
 const Wrap = styled.div`
   position: relative;
@@ -44,7 +45,7 @@ export default (props) => {
     <PlacesAutocomplete value={address} onChange={setAddress} onSelect={handleSelect} searchOptions={searchOptions}>
       {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
         <Wrap>
-          <input
+          <Input
             {...getInputProps({
               placeholder: "Začněte psát jmeno ulice, my za Vás doplníme zbytek      (nepovinné pole)",
               className: "location-search-input address-input",

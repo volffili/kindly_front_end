@@ -4,7 +4,7 @@ import * as Yup from "yup"
 import axios from "axios"
 import { baseUrl } from "../Url"
 import { Button, FormGroup, Label } from "reactstrap"
-import LocationInput from "../components/LocationAutocomplete"
+import LocationAutocomplete from "../components/LocationAutocomplete"
 import Instructions from "../components/Instructions"
 import { ReactstrapInput } from "reactstrap-formik"
 
@@ -67,7 +67,7 @@ export default () => {
         }}
       >
         <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={onSubmit}>
-          {({ errors, touched }) => (
+          {() => (
             <Form className="askhelp-form">
               <FormGroup>
                 <Label htmlFor="name">Jméno</Label>
@@ -81,68 +81,57 @@ export default () => {
               </FormGroup>
               <FormGroup>
                 <Label htmlFor="age">Věk</Label>
-                <div>
-                  <Field id="age" name="age" type="text" placeholder="Počet roků   (nepovinné pole)" />
-                </div>
-                {errors.age && touched.age ? <div className="validation-error">{errors.age}</div> : null}
+                <Field
+                  id="age"
+                  name="age"
+                  type="text"
+                  placeholder="Počet roků   (nepovinné pole)"
+                  component={ReactstrapInput}
+                />
               </FormGroup>
               <FormGroup>
                 <Label htmlFor="email">Email</Label>
-                <div>
-                  <Field
-                    id="email"
-                    name="email"
-                    type="text"
-                    placeholder="Ve formátu honza@novak.cz     (nepovinné pole)"
-                  />
-                </div>
-                {errors.email && touched.email ? <div className="validation-error">{errors.email}</div> : null}
+                <Field
+                  component={ReactstrapInput}
+                  id="email"
+                  name="email"
+                  type="text"
+                  placeholder="Ve formátu honza@novak.cz     (nepovinné pole)"
+                />
               </FormGroup>
               <FormGroup>
                 <Label htmlFor="phone_number">Telefonní číslo</Label>
-                <div>
-                  <Field
-                    id="phone_number"
-                    name="phone_number"
-                    type="text"
-                    placeholder="Ve formátu 720123789      (povinné pole)"
-                  />
-                </div>
-                {errors.phone_number && touched.phone_number ? (
-                  <div className="validation-error">{errors.phone_number}</div>
-                ) : null}
+                <Field
+                  component={ReactstrapInput}
+                  id="phone_number"
+                  name="phone_number"
+                  type="text"
+                  placeholder="Ve formátu 720123789      (povinné pole)"
+                />
               </FormGroup>
               <FormGroup>
-                <Label>Adresa</Label>
-                <LocationInput onAddressSelect={handleAddressChange} />
+                <Label htmlFor="requester_address">Adresa</Label>
+                <LocationAutocomplete id="requester_address" onAddressSelect={handleAddressChange} />
               </FormGroup>
               <FormGroup>
                 <Label htmlFor="request_topic">Předmět žádosti</Label>
-                <div>
-                  <Field
-                    id="request_topic"
-                    name="request_topic"
-                    type="text"
-                    placeholder="Např. Venčení psa   (povinné pole)"
-                  />
-                </div>
-                {errors.request_topic && touched.request_topic ? (
-                  <div className="validation-error">{errors.request_topic}</div>
-                ) : null}
+                <Field
+                  component={ReactstrapInput}
+                  id="request_topic"
+                  name="request_topic"
+                  type="text"
+                  placeholder="Např. Venčení psa   (povinné pole)"
+                />
               </FormGroup>
               <FormGroup>
                 <Label htmlFor="request_description">Popis žádosti</Label>
-                <div>
-                  <Field
-                    id="request_description"
-                    name="request_description"
-                    type="text"
-                    placeholder="Např. Mám 2 psy typu čivava které je potřeba venčit 2-krát denně, ráno a večer   (povinné pole)"
-                  />
-                </div>
-                {errors.request_description && touched.request_description ? (
-                  <div className="validation-error">{errors.request_description}</div>
-                ) : null}
+                <Field
+                  component={ReactstrapInput}
+                  id="request_description"
+                  name="request_description"
+                  type="text"
+                  placeholder="Např. Mám 2 psy typu čivava které je potřeba venčit 2-krát denně, ráno a večer   (povinné pole)"
+                />
               </FormGroup>
 
               <Button className="btn-lg btn-dark btn-block submit-button" type="submit">
