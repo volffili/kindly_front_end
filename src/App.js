@@ -9,7 +9,7 @@ import HelpRequestDetail from "./components/HelpRequestDetail"
 
 function App() {
   return (
-    <Router basename={process.env.PUBLIC_URL}>
+    <Router>
       <Navbar />
       <Route path="/" exact component={LandingPage} />
       <Route path="/ineedhelp" component={INeedHelp} />
