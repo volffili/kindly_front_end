@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "0c37ecd8c2c68769223fb239a7007a8e",
+    "revision": "80f1b83bb262d3b85a4bc1a5c9aa1abb",
     "url": "/kindly_front_end/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/kindly_front_end/static/css/2.17e5ed98.chunk.css"
   },
   {
-    "revision": "e314e972e1197aa1d100",
+    "revision": "ea073b2eba41631bd49d",
     "url": "/kindly_front_end/static/css/main.a41e1762.chunk.css"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/kindly_front_end/static/js/2.b32aecf1.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "e314e972e1197aa1d100",
-    "url": "/kindly_front_end/static/js/main.01afe2ea.chunk.js"
+    "revision": "ea073b2eba41631bd49d",
+    "url": "/kindly_front_end/static/js/main.37940d75.chunk.js"
   },
   {
     "revision": "57a48cdf08c107c72fe4",
