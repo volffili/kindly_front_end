@@ -13,17 +13,17 @@ export default () => {
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
             <NavItem>
-              <Link to="/iwanttohelp">
+              <Link to="iwanttohelp">
                 <NavLink>Nabízím pomoc</NavLink>
               </Link>
             </NavItem>
             <NavItem>
-              <Link to="/ineedhelp">
+              <Link to="ineedhelp">
                 <NavLink>Žádám o pomoc</NavLink>
               </Link>
             </NavItem>
             <NavItem>
-              <Link to="/feedback">
+              <Link to="feedback">
                 <NavLink>Kontakt</NavLink>
               </Link>
             </NavItem>

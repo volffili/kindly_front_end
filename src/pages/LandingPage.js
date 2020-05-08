@@ -27,14 +27,14 @@ export default () => (
     </Row>
     <Row>
       <Col sm="6" align="center">
-        <Link to="/iwanttohelp">
+        <Link to="iwanttohelp">
           <Button className="my-5" outline color="secondary" size="lg">
             Nabízím pomoc
           </Button>
         </Link>
       </Col>
       <Col sm="6" className="my-auto" align="center">
-        <Link to="/ineedhelp">
+        <Link to="ineedhelp">
           <Button className="my-5" outline color="secondary" size="lg">
             Žádám o pomoc
           </Button>
@@ -55,7 +55,7 @@ export default () => (
       <Col sm="10" className="my-auto p-5" align="center">
         <h3>
           Tady je nejaky dalsi text. Tohle jsou nasi sponzori. Bla bla bla bla bla bla.{" "}
-          <a href="/feedback">Muzete nam taky pomoct!</a> Dalsi kecy bla bla bla bla. Pomahejte si. Tecka. Lorem Ipsum.
+          <a href="feedback">Muzete nam taky pomoct!</a> Dalsi kecy bla bla bla bla. Pomahejte si. Tecka. Lorem Ipsum.
           Cau Tommy, nechces pomoct vykopat nejaky kameni?
         </h3>
       </Col>
