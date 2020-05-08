@@ -15,8 +15,8 @@ const Map =
     return (
       <GoogleMap
         // Center of Czech Republic
-        defaultZoom={7}
-        defaultCenter={{ lat: 49.8600624, lng: 15.5860745 }}
+        defaultZoom={props.zoom}
+        defaultCenter={props.center}
       >
         {props.helpRequests.map((request) => (
           <CustomMarker helpRequest={request} link={props.link}/>

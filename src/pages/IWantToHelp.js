@@ -6,31 +6,43 @@ import { baseUrl } from "../Url"
 import Map from "../components/Map"
 import "./i-want-to-help-style.css"
 import Loading from "../components/Loading";
+import Pagination from "../components/Pagination";
 
 export default () => {
   const [helpRequests, setHelpRequests] = useState([]);
   const [totalCount, setTotalCount] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [rowsPerPage] = useState(10);
   
   const pageSize = 10;
 
   useEffect(() => {
+    setLoading(true);
     axios
       .get(baseUrl, {
         params: { api_name: "get_help_requests",
                   offset: 0,
-                  row_count: pageSize
+                  row_count: 1000
                 },
       })
       .then((res) => {
-        setHelpRequests(res.data.result.help_requests)
-        setTotalCount(res.data.result.count)
+        setHelpRequests(res.data.result.help_requests);
+        setTotalCount(res.data.result.count);
+        setLoading(false);
       })
       .catch((err) => console.error(err))
   }, []);
+  
+  const indexOfLastRow = currentPage * rowsPerPage;
+  const indexOfFirstRow = indexOfLastRow - rowsPerPage;
+  const currentRows = helpRequests.slice(indexOfFirstRow, indexOfLastRow);
+  
+  const paginate = pageNumber => setCurrentPage(pageNumber);
 
   return (
     <div>
-      {helpRequests.length === 0 ? (
+      {loading ? (
         <Loading/>
       ) : (
         <div className="wrapper">
@@ -38,14 +50,14 @@ export default () => {
             Celkem žádá o pomoc {totalCount} lidí po celé České Republice
           </h1>
           <Map
-            zoom={13}
-            center={{ lat: 50.0864771, lng: 14.4114366 }}
+            zoom={7}
+            center={{ lat: 49.8600624, lng: 15.5860745 }}
             containerElement={<div style={{ height: `400px` }} />}
             mapElement={<div style={{ height: `100%` }} />}
             helpRequests={helpRequests}
             link={true}
           />
-          <h1>Seznam inzerátů ({pageSize} / {totalCount})</h1>
+          <h1>Seznam inzerátů ({indexOfFirstRow + 1} - {indexOfLastRow} / {totalCount})</h1>
           <Table>
             <thead>
               <tr>
@@ -56,13 +68,18 @@ export default () => {
               </tr>
             </thead>
             <tbody>
-              {helpRequests.map((helpRequest) => (
+              {currentRows.map((helpRequest) => (
                 <HelpSummary
                   helpRequest={helpRequest}
                 />
               ))}
             </tbody>
           </Table>
+          <Pagination
+            rowsPerPage={rowsPerPage}
+            totalRows={helpRequests.length}
+            paginate={paginate}
+          />
         </div>
       )}
     </div>

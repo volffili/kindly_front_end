@@ -65,7 +65,6 @@ export default (props) => {
           </div>
           <div className="map" style={{
             width: '80%',
-            float: 'left'
           }}>
             <Map
               zoom={12}
