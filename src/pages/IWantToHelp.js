@@ -13,7 +13,7 @@ export default () => {
   const [totalCount, setTotalCount] = useState([]);
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
-  const [rowsPerPage] = useState(10);
+  const [rowsPerPage] = useState(7);
   
   const pageSize = 10;
 
@@ -57,7 +57,7 @@ export default () => {
             helpRequests={helpRequests}
             link={true}
           />
-          <h1>Seznam inzerátů ({indexOfFirstRow + 1} - {indexOfLastRow} / {totalCount})</h1>
+          <h1>Seznam inzerátů ({indexOfFirstRow + 1} - {Math.min(indexOfLastRow, totalCount)} / {totalCount})</h1>
           <Table>
             <thead>
               <tr>
