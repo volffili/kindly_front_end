@@ -6,7 +6,6 @@ import LandingPage from "./pages/LandingPage"
 import Feedback from "./components/Feedback"
 import Navbar from "./components/Navbar"
 import HelpRequestDetail from "./components/HelpRequestDetail"
-import styled from "styled-components/macro"
 
 function App() {
   return (

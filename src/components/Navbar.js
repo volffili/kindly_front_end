@@ -1,9 +1,10 @@
 import React, { useState } from "react"
 import { Navbar, NavbarBrand, Nav, NavItem, Collapse, NavLink } from "reactstrap"
+import { Link } from "react-router-dom"
 
 export default () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const toggle = () => setIsOpen(!isOpen);
+  const [isOpen, setIsOpen] = useState(false)
+  const toggle = () => setIsOpen(!isOpen)
 
   return (
     <div>
@@ -12,13 +13,19 @@ export default () => {
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
             <NavItem>
-              <NavLink href="/iwanttohelp">Nabízím pomoc</NavLink>
+              <Link to="/iwanttohelp">
+                <NavLink>Nabízím pomoc</NavLink>
+              </Link>
             </NavItem>
             <NavItem>
-              <NavLink href="/ineedhelp">Žádám o pomoc</NavLink>
+              <Link to="/ineedhelp">
+                <NavLink>Žádám o pomoc</NavLink>
+              </Link>
             </NavItem>
             <NavItem>
-              <NavLink href="/feedback">Kontakt</NavLink>
+              <Link to="/feedback">
+                <NavLink>Kontakt</NavLink>
+              </Link>
             </NavItem>
           </Nav>
         </Collapse>
