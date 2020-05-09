@@ -15,7 +15,7 @@ const Img100 = styled.img`
 export default () => (
   <PageWrap fluid={true}>
     <Row className="justify-content-center">
-      <Col sm="10" className="my-auto p-5" align="center">
+      <Col sm="10" className="my-auto py-5" align="center">
         <h1>Kindly</h1>
         <h2>Vzájemná pomoc sousedů</h2>
         <h4>
@@ -66,7 +66,7 @@ export default () => (
       loading={() => <Img100 src={lovepalms_jpg} />}
     />
     <Row className="justify-content-center">
-      <Col sm="10" className="my-auto p-5" align="center">
+      <Col sm="10" className="my-auto py-5" align="center">
         <h4>
           Tady je nejaky dalsi text. Tohle jsou nasi sponzori. Bla bla bla bla bla bla.{" "}
           <a href="/feedback">Muzete nam taky pomoct!</a> Dalsi kecy bla bla bla bla. Pomahejte si. Tecka. Lorem Ipsum.
