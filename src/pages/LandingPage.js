@@ -6,17 +6,14 @@ import { ReactSVG } from "react-svg"
 import lovepalms_svg from "../lovepalms_minified.svg"
 import lovepalms_jpg from "../lovepalms.jpg"
 import { Row, Col, Container, Card, CardFooter, CardBody } from "reactstrap"
+import PageWrap from "../components/PageWrap"
 
 const Img100 = styled.img`
   width: 100%;
 `
-const Wrapper = styled(Container)`
-  height: 100%;
-  margin-top: 56px; /*56px is the height of navbar*/
-`
 
 export default () => (
-  <Wrapper fluid={true}>
+  <PageWrap fluid={true}>
     <Row className="justify-content-center">
       <Col sm="10" className="my-auto p-5" align="center">
         <h1>Kindly</h1>
@@ -77,5 +74,5 @@ export default () => (
         </h4>
       </Col>
     </Row>
-  </Wrapper>
+  </PageWrap>
 )

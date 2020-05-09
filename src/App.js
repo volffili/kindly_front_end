@@ -3,7 +3,7 @@ import { HashRouter as Router, Route } from "react-router-dom"
 import INeedHelp from "./pages/INeedHelp"
 import IWantToHelp from "./pages/IWantToHelp"
 import LandingPage from "./pages/LandingPage"
-import Feedback from "./components/Feedback"
+import Feedback from "./pages/Feedback"
 import Navbar from "./components/Navbar"
 import HelpRequestDetail from "./components/HelpRequestDetail"
 

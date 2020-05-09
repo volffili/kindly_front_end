@@ -3,7 +3,6 @@ import axios from "axios"
 import { baseUrl } from "../Url"
 import Map from "./Map"
 import { Button } from "reactstrap"
-import Instructions from "./Instructions"
 import Loading from "./Loading"
 
 export default (props) => {
@@ -38,9 +37,7 @@ export default (props) => {
         <Loading />
       ) : (
         <div>
-          <Instructions
-            header="Jak můžete Vy pomoci ostatním?"
-            textRows={["Lorem Ipsum sdfosdfsdofndsofds", "Lorem Ipsum sdufsdfsdfsd"]}
+          <h1>Jak můžete Vy pomoci ostatním?</h1>
           />
           <div
             className="wrapper"
