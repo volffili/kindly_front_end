@@ -19,6 +19,8 @@ export default ({ errors, touched }) => {
 
   const initialValues = {
     requester_email: "",
+    requester_name: "",
+    requester_surname: "",
     feedback_topic: "",
     feedback_description: "",
   }
@@ -57,6 +59,31 @@ export default ({ errors, touched }) => {
           <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={onSubmit}>
             {() => (
               <Form>
+                <Row>
+                  <Col md="6">
+                    <FormGroup>
+                      <Field
+                        label="Jméno"
+                        name="requester_name"
+                        type="text"
+                        placeholder="Jméno"
+                        component={ReactstrapInput}
+                      />
+                    </FormGroup>
+                  </Col>
+
+                  <Col md="6">
+                    <FormGroup>
+                      <Field
+                        label="Příjmení"
+                        name="requester_surname"
+                        type="text"
+                        placeholder="Příjmení"
+                        component={ReactstrapInput}
+                      />
+                    </FormGroup>
+                  </Col>
+                </Row>
                 <Row>
                   <Col md="6">
                     <FormGroup>
