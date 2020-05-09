@@ -21,7 +21,6 @@ export default () => {
 
   const validationSchema = Yup.object().shape({
     name: Yup.string().required("Jméno je povinné pole"),
-    age: Yup.number().typeError("Věk musí být číslo"),
     email: Yup.string()
       .email("Neplatný email. Systém očekává formát honza.novak@seznam.cz")
       .required("Email je povinné pole"),
@@ -32,8 +31,6 @@ export default () => {
 
   const initialValues = {
     name: "",
-    surname: "",
-    age: "",
     phone_number: "",
     email: "",
     request_topic: "",
@@ -45,7 +42,7 @@ export default () => {
     let query_params = {
       api_name: "post_help_request",
       requester_name: values.name,
-      requester_age: values.age,
+      requester_age: null,
       requester_email: values.email,
       requester_phone_number: values.phone_number,
       requester_address: address.formatted_address,
@@ -70,12 +67,13 @@ export default () => {
         body="Teď už jen stačí počkat než se ti někdo ozve! asldfkasjdlfk jsadfl dfk jalsfldskaj fa adlkfj Např. Mám 2 psy typu čivava které je potřeba venčit 2-krát denně, ráno a veče "
         buttonLabel="Dobře"
       ></Alert>
-      <Row>
-        <Col>
-          <h3>Čím Vám ostatní mohou pomoci?</h3>
+      <Row className="justify-content-center mb-4">
+        <Col style={{ maxWidth: 700 }}>
+          <h3>S čím potřebujete pomoci?</h3>
           <p>
-            Každý se občas dostane do situace kdy potřebuje pomoct. blabla lorem ipsum tady nejak text a ladf asdf ahoj
-            jak se mas, vcera jse mse mel dobre , dnes taky
+            Každý z nás se občas dostane do situace, kdy si neví rady. Nebojte se a požádejte o pomoc. Ať už se jedná o
+            výměnu žárovky, přivrtání poličky, donesení nákupu či venčení psa. Pokusíme se vás propojit s lidmi z vašeho
+            okolí, kteří rádi podají pomocnou ruku.
           </p>
         </Col>
       </Row>
@@ -84,103 +82,69 @@ export default () => {
           <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={onSubmit}>
             {() => (
               <Form className="askhelp-form">
-                <Row>
-                  <Col sm="5">
+                <Row className="justify-content-center">
+                  <Col style={{ maxWidth: 600 }}>
                     <FormGroup>
                       <Field
-                        label="Jméno"
+                        label="Jméno*"
                         id="name"
                         name="name"
                         component={ReactstrapInput}
                         type="text"
-                        placeholder="Jméno  (povinné pole)"
+                        placeholder="Vaše jméno a příjmení."
                       />
                     </FormGroup>
-                  </Col>
-                  <Col sm="5">
                     <FormGroup>
-                      <Field
-                        label="Příjmení"
-                        id="surname"
-                        name="surname"
-                        component={ReactstrapInput}
-                        type="text"
-                        placeholder="Příjmení  "
+                      <Label htmlFor="requester_address">Adresa</Label>
+                      <LocationAutocomplete
+                        id="requester_address"
+                        onAddressSelect={setAddress}
+                        placeholder="Vaše adresa nebude nikde zobrazena, pouze určí lokalitu."
                       />
                     </FormGroup>
-                  </Col>
-                  <Col sm="2">
                     <FormGroup>
                       <Field
-                        label="Věk"
-                        id="age"
-                        name="age"
-                        type="text"
-                        placeholder="Počet roků   (nepovinné pole)"
-                        component={ReactstrapInput}
-                      />
-                    </FormGroup>
-                  </Col>
-                </Row>
-                <Row>
-                  <Col lg="4" sm="6">
-                    <FormGroup>
-                      <Field
-                        label="Email"
+                        label="Email*"
                         component={ReactstrapInput}
                         id="email"
                         name="email"
                         type="text"
-                        placeholder="Ve formátu honza@novak.cz     (povinné pole)"
+                        placeholder="Vyplňte e-mail, aby vás pomocníci mohli kontaktovat."
                       />
                     </FormGroup>
-                  </Col>
-                  <Col lg="4" sm="6">
                     <FormGroup>
                       <Field
-                        label="Telefonní číslo"
+                        label="Telefon"
                         component={ReactstrapInput}
                         id="phone_number"
                         name="phone_number"
                         type="text"
-                        placeholder="Ve formátu 720123789      (nepovinné pole)"
+                        placeholder="Pokud chcete pomoc urychlit, můžete vyplnit i telefon. "
                       />
                     </FormGroup>
-                  </Col>
-                  <Col lg="4" sm="12">
-                    <FormGroup>
-                      <Label htmlFor="requester_address">Adresa</Label>
-                      <LocationAutocomplete id="requester_address" onAddressSelect={setAddress} />
-                    </FormGroup>
-                  </Col>
-                </Row>
-                <Row>
-                  <Col md="4">
                     <FormGroup>
                       <Field
-                        label="Předmět žádosti"
+                        label="Předmět*"
                         component={ReactstrapInput}
                         id="request_topic"
                         name="request_topic"
                         type="text"
-                        placeholder="Např. Venčení psa   (povinné pole)"
+                        placeholder="S čím potřebujete pomoci?"
                       />
                     </FormGroup>
-                  </Col>
-                  <Col sm="12">
                     <FormGroup>
                       <Field
-                        label="Popis žádosti"
+                        label="Popis*"
                         component={ReactstrapInput}
                         id="request_description"
                         name="request_description"
                         type="textarea"
                         rows="4"
-                        placeholder="Např. Mám 2 psy typu čivava které je potřeba venčit 2-krát denně, ráno a večer   (povinné pole)"
+                        placeholder="Popiště co nejpřesněji o co se jedná, aby pomocník přišel připravený. Bude potřeba přinést nářadí?"
                       />
                     </FormGroup>
                   </Col>
-                </Row>{" "}
+                </Row>
                 <Row>
                   <Col align="center">
                     <MaxWidthButton className="btn-lg btn-dark btn-block submit-button" type="submit">

@@ -47,7 +47,7 @@ export default (props) => {
         <Wrap>
           <Input
             {...getInputProps({
-              placeholder: "Začněte psát jmeno ulice, my za Vás doplníme zbytek      (nepovinné pole)",
+              placeholder: props.placeholder,
               className: "location-search-input address-input",
             })}
           />
