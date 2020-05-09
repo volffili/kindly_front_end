@@ -8,6 +8,7 @@ import LocationAutocomplete from "../components/LocationAutocomplete"
 import { ReactstrapInput } from "reactstrap-formik"
 import PageWrap from "../components/PageWrap"
 import styled from "styled-components/macro"
+import Alert from "../components/Alert"
 
 const MaxWidthButton = styled(Button)`
   max-width: 300px;
@@ -15,6 +16,8 @@ const MaxWidthButton = styled(Button)`
 
 export default () => {
   const [address, setAddress] = useState({})
+  const [isModalOpen, setModal] = useState(false)
+  const toggleModal = () => setModal(!isModalOpen)
 
   const validationSchema = Yup.object().shape({
     name: Yup.string().required("Jméno je povinné pole"),
@@ -38,6 +41,7 @@ export default () => {
   }
 
   const onSubmit = (values) => {
+    toggleModal()
     let query_params = {
       api_name: "post_help_request",
       requester_name: values.name,
@@ -59,9 +63,16 @@ export default () => {
 
   return (
     <PageWrap>
+      <Alert
+        isOpen={isModalOpen}
+        toggle={toggleModal}
+        title="Title"
+        body="Teď už jen stačí počkat než se ti někdo ozve! asldfkasjdlfk jsadfl dfk jalsfldskaj fa adlkfj Např. Mám 2 psy typu čivava které je potřeba venčit 2-krát denně, ráno a veče "
+        buttonLabel="Dobře"
+      ></Alert>
       <Row>
         <Col>
-          <h1>Čím Vám ostatní mohou pomoci?</h1>
+          <h3>Čím Vám ostatní mohou pomoci?</h3>
           <p>
             Každý se občas dostane do situace kdy potřebuje pomoct. blabla lorem ipsum tady nejak text a ladf asdf ahoj
             jak se mas, vcera jse mse mel dobre , dnes taky

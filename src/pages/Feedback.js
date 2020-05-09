@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import { Form, Field, Formik } from "formik"
 import * as Yup from "yup"
 import { Button, FormGroup, Row, Col } from "reactstrap"
@@ -7,12 +7,16 @@ import { baseUrl } from "../Url"
 import { ReactstrapInput } from "reactstrap-formik"
 import PageWrap from "../components/PageWrap"
 import styled from "styled-components/macro"
+import Alert from "../components/Alert"
 
 const MaxWidthButton = styled(Button)`
   max-width: 300px;
 `
 
-export default ({ errors, touched }) => {
+export default () => {
+  const [isModalOpen, setModal] = useState(false)
+  const toggleModal = () => setModal(!isModalOpen)
+
   const validationSchema = Yup.object().shape({
     requester_email: Yup.string()
       .required("Email je povinný")
@@ -31,7 +35,7 @@ export default ({ errors, touched }) => {
   }
 
   const onSubmit = (values) => {
-    console.log("Request should be send with these values:", values)
+    toggleModal()
     axios.get(baseUrl, {
       params: {
         api_name: "post_feedback",
@@ -44,6 +48,14 @@ export default ({ errors, touched }) => {
 
   return (
     <PageWrap>
+      <Alert
+        isOpen={isModalOpen}
+        toggle={toggleModal}
+        title="Title"
+        body="Díky moc za feedback1 y Pokud jste odpověděl/a ANO na jakoukoli z výše položených otázek, tak prosím neváhejte a vyplňte formulář
+        níže. Zabere Vám to 2 minuty. Vaše zpětypu čivava které je potřeba venčit 2-krát denně, ráno a veče "
+        buttonLabel="Není zač"
+      ></Alert>
       <Row>
         <Col>
           <h3>Pomozte nám pomáhat!</h3>
@@ -58,7 +70,6 @@ export default ({ errors, touched }) => {
           </p>
         </Col>
       </Row>
-
       <Row>
         <Col>
           <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={onSubmit}>
@@ -132,7 +143,7 @@ export default ({ errors, touched }) => {
                   <Col align="center">
                     <MaxWidthButton className="btn-lg btn-dark btn-block submit-button" type="submit">
                       Poslat připomínku
-                    </MaxWidthButton>
+                    </MaxWidthButton>{" "}
                   </Col>
                 </Row>
               </Form>
