@@ -6,6 +6,11 @@ import axios from "axios"
 import { baseUrl } from "../Url"
 import { ReactstrapInput } from "reactstrap-formik"
 import PageWrap from "../components/PageWrap"
+import styled from "styled-components/macro"
+
+const MaxWidthButton = styled(Button)`
+  max-width: 300px;
+`
 
 export default ({ errors, touched }) => {
   const validationSchema = Yup.object().shape({
@@ -123,9 +128,13 @@ export default ({ errors, touched }) => {
                     </FormGroup>
                   </Col>
                 </Row>
-                <Button className="btn-lg btn-dark btn-block submit-button" type="submit">
-                  Poslat připomínku
-                </Button>
+                <Row>
+                  <Col align="center">
+                    <MaxWidthButton className="btn-lg btn-dark btn-block submit-button" type="submit">
+                      Poslat připomínku
+                    </MaxWidthButton>
+                  </Col>
+                </Row>
               </Form>
             )}
           </Formik>
