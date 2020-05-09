@@ -59,7 +59,7 @@ export default () => {
           <h3>Pomozte i nám!</h3>
           <p>
             Máte nápad na vylepšení aplikace nebo vám něco nefunguje jak má? Neváhejte nás kontaktovat. Vážíme si zpětné
-            vazby a budeme rádi, za jakékoli relevantní připomínky. <b>Děkujeme.</b>
+            vazby a budeme rádi, za jakékoli relevantní připomínky. <b>Děkujeme!</b>
           </p>
         </StdFormInfoCol>
       </Row>
@@ -104,8 +104,7 @@ export default () => {
                         name="feedback_description"
                         type="textarea"
                         rows="4"
-                        placeholder="Napiště nám zprávu. Popiště váš nápad či připomínku detailněji.
-                      Děkujeme!"
+                        placeholder="Napiště nám zprávu. Popiště váš nápad či připomínku detailněji."
                         component={ReactstrapInput}
                       />
                     </FormGroup>

@@ -1,5 +1,13 @@
 import React, { useEffect } from "react"
-import { Button, Card, CardText, CardBody, CardHeader, CardFooter } from "reactstrap"
+import { Button, Card, CardText, CardBody, CardTitle } from "reactstrap"
+import styled from "styled-components/macro"
+
+const Description = styled(CardText)`
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+`
 
 export default (props) => {
   useEffect(() => {}, [])
@@ -10,17 +18,19 @@ export default (props) => {
   }
 
   return (
-    <Card className="my-3">
-      <CardHeader>{props.helpRequest.request_topic}</CardHeader>
-      <CardBody>
-        <CardText>{new Date(props.helpRequest.request_create_timestamp).toLocaleDateString()}</CardText>
-        <CardText>{props.helpRequest.requester_address}</CardText>
+    <Card className="my-3" color="secondary" outline style={{ height: 260 }}>
+      <CardBody className="d-flex flex-column">
+        <CardTitle>
+          <b>{props.helpRequest.request_topic}</b>
+        </CardTitle>
+        <Description>{props.helpRequest.request_details}</Description>
+        <CardText className="text-right mt-auto d-flex flex-row justify-content-between">
+          {new Date(props.helpRequest.request_create_timestamp).toLocaleDateString()}
+          <Button outline onClick={redirectToDetails}>
+            Detail pomoci
+          </Button>
+        </CardText>
       </CardBody>
-      <CardFooter>
-        <Button color="dark" onClick={redirectToDetails}>
-          Pomoct
-        </Button>
-      </CardFooter>
     </Card>
   )
 }
