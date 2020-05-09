@@ -1,18 +1,19 @@
 import React, { useState, useEffect } from "react"
-import { Table } from "reactstrap"
+import { Table, Row, Col } from "reactstrap"
 import axios from "axios"
-import HelpSummary from "../components/HelpSummary"
+import HelpCard from "../components/HelpCard"
 import { baseUrl } from "../Url"
 import Map from "../components/Map"
 import Loading from "../components/Loading"
 import Pagination from "../components/Pagination"
+import PageWrap from "../components/PageWrap"
 
 export default () => {
   const [helpRequests, setHelpRequests] = useState([])
   const [totalCount, setTotalCount] = useState([])
   const [loading, setLoading] = useState(false)
   const [currentPage, setCurrentPage] = useState(1)
-  const [rowsPerPage] = useState(7)
+  const [requestsPerPage] = useState(6)
 
   useEffect(() => {
     setLoading(true)
@@ -28,19 +29,21 @@ export default () => {
       .catch((err) => console.error(err))
   }, [])
 
-  const indexOfLastRow = currentPage * rowsPerPage
-  const indexOfFirstRow = indexOfLastRow - rowsPerPage
-  const currentRows = helpRequests.slice(indexOfFirstRow, indexOfLastRow)
+  const indexOfLastRequest = currentPage * requestsPerPage
+  const indexOfFirstRequest = indexOfLastRequest - requestsPerPage
+  const currentRequests = helpRequests.slice(indexOfFirstRequest, indexOfLastRequest)
 
   const paginate = (pageNumber) => setCurrentPage(pageNumber)
 
   return (
-    <div>
-      {loading ? (
-        <Loading />
-      ) : (
-        <div className="wrapper">
-          <h1>Celkem žádá o pomoc {totalCount} lidí po celé České Republice</h1>
+    <PageWrap>
+      <Row>
+        <Col align="center">
+          <h3>Celkem žádá o pomoc {totalCount} lidí po celé České Republice</h3>
+        </Col>
+      </Row>
+      <Row>
+        <Col>
           <Map
             zoom={7}
             center={{ lat: 49.8600624, lng: 15.5860745 }}
@@ -49,27 +52,23 @@ export default () => {
             helpRequests={helpRequests}
             link={true}
           />
-          <h1>
+        </Col>
+      </Row>
+      {/*<p>
             Seznam inzerátů ({indexOfFirstRow + 1} - {Math.min(indexOfLastRow, totalCount)} / {totalCount})
-          </h1>
-          <Table>
-            <thead>
-              <tr>
-                <th>Den zadání</th>
-                <th>Předmět žádosti</th>
-                <th>Adresa</th>
-                <th></th>
-              </tr>
-            </thead>
-            <tbody>
-              {currentRows.map((helpRequest) => (
-                <HelpSummary helpRequest={helpRequest} />
-              ))}
-            </tbody>
-          </Table>
-          <Pagination rowsPerPage={rowsPerPage} totalRows={helpRequests.length} paginate={paginate} />
-        </div>
+          </p>*/}
+      {loading ? (
+        <Loading />
+      ) : (
+        <Row>
+          {currentRequests.map((helpRequest) => (
+            <Col md="6" lg="4" xl="3">
+              <HelpCard helpRequest={helpRequest} />
+            </Col>
+          ))}
+        </Row>
       )}
-    </div>
+      <Pagination rowsPerPage={requestsPerPage} totalRows={helpRequests.length} paginate={paginate} />
+    </PageWrap>
   )
 }
