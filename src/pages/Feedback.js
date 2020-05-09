@@ -8,6 +8,7 @@ import { ReactstrapInput } from "reactstrap-formik"
 import PageWrap from "../components/PageWrap"
 import styled from "styled-components/macro"
 import Alert from "../components/Alert"
+import { StdFormButton, StdFormInfoCol, StdFormCol } from "../components/FormStandard"
 
 const MaxWidthButton = styled(Button)`
   max-width: 300px;
@@ -18,11 +19,8 @@ export default () => {
   const toggleModal = () => setModal(!isModalOpen)
 
   const validationSchema = Yup.object().shape({
-    requester_email: Yup.string()
-      .required("Email je povinný")
-      .email("Neplatný email. Systém očekává formát honza.novak@seznam.cz")
-      .max(100, "Email je příliš dlouhý"),
-    feedback_topic: Yup.string().required("Chybí předmět"),
+    requester_email: Yup.string().required("Chybí email").email("Neplatný email").max(100, "Email je příliš dlouhý"),
+    feedback_topic: Yup.string(),
     feedback_description: Yup.string().max(1000, "Popis je příliš dlouhý").required("Chybí popis"),
   })
 
@@ -56,94 +54,68 @@ export default () => {
         níže. Zabere Vám to 2 minuty. Vaše zpětypu čivava které je potřeba venčit 2-krát denně, ráno a veče "
         buttonLabel="Není zač"
       ></Alert>
-      <Row>
-        <Col>
-          <h3>Pomozte nám pomáhat!</h3>
+      <Row className="justify-content-center mb-4">
+        <StdFormInfoCol>
+          <h3>Pomozte i nám!</h3>
           <p>
-            Něco Vám nefunguje tak jak má? Máte nápad na možné vylepšení této aplikace? Nebo máte jakoukoli jinou
-            relevantní připomínku?{" "}
+            Máte nápad na vylepšení aplikace nebo vám něco nefunguje jak má? Neváhejte nás kontaktovat. Vážíme si zpětné
+            vazby a budeme rádi, za jakékoli relevantní připomínky. <b>Děkujeme.</b>
           </p>
-          <p>
-            Pokud jste odpověděl/a ANO na jakoukoli z výše položených otázek, tak prosím neváhejte a vyplňte formulář
-            níže. Zabere Vám to 2 minuty. Vaše zpětné vazby bereme velice vážně a jsme za ně velice vděční.{" "}
-            <b>Děkujeme</b>
-          </p>
-        </Col>
+        </StdFormInfoCol>
       </Row>
       <Row>
         <Col>
           <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={onSubmit}>
             {() => (
               <Form>
-                <Row>
-                  <Col md="6">
+                <Row className="justify-content-center">
+                  <StdFormCol>
                     <FormGroup>
                       <Field
                         label="Jméno"
                         name="requester_name"
                         type="text"
-                        placeholder="Jméno"
+                        placeholder="Vaše jméno a příjmení."
                         component={ReactstrapInput}
                       />
                     </FormGroup>
-                  </Col>
-
-                  <Col md="6">
                     <FormGroup>
                       <Field
-                        label="Příjmení"
-                        name="requester_surname"
-                        type="text"
-                        placeholder="Příjmení"
-                        component={ReactstrapInput}
-                      />
-                    </FormGroup>
-                  </Col>
-                </Row>
-                <Row>
-                  <Col md="6">
-                    <FormGroup>
-                      <Field
-                        label="Email"
+                        label="Email*"
                         name="requester_email"
                         type="text"
-                        placeholder="Ve formatu např. honza.novak@seznam.cz"
+                        placeholder="Vyplňte email, abychom vás mohli kontaktovat."
                         component={ReactstrapInput}
                       />
                     </FormGroup>
-                  </Col>
-                  <Col md="6">
                     <FormGroup>
                       <Field
-                        label="předmět"
+                        label="Předmět"
                         name="feedback_topic"
                         type="text"
-                        placeholder="Např. Stížnost nebo Návrh na vylepšení"
+                        placeholder="O co se jedná?"
                         component={ReactstrapInput}
                       />
                     </FormGroup>
-                  </Col>
-                </Row>
-                <Row>
-                  <Col>
                     <FormGroup>
                       <Field
-                        label="Popis"
+                        label="Popis*"
                         id="feedback_description"
                         name="feedback_description"
                         type="textarea"
                         rows="4"
-                        placeholder="Např. Nenačítá se mi mapa"
+                        placeholder="Napiště nám zprávu. Popiště váš nápad či připomínku detailněji.
+                      Děkujeme!"
                         component={ReactstrapInput}
                       />
                     </FormGroup>
-                  </Col>
+                  </StdFormCol>
                 </Row>
                 <Row>
                   <Col align="center">
-                    <MaxWidthButton className="btn-lg btn-dark btn-block submit-button" type="submit">
+                    <StdFormButton className="btn-lg btn-dark btn-block submit-button" type="submit">
                       Poslat připomínku
-                    </MaxWidthButton>{" "}
+                    </StdFormButton>{" "}
                   </Col>
                 </Row>
               </Form>

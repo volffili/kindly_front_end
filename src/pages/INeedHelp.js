@@ -3,16 +3,12 @@ import { Field, Form, Formik } from "formik"
 import * as Yup from "yup"
 import axios from "axios"
 import { baseUrl } from "../Url"
-import { Button, FormGroup, Label, Row, Col } from "reactstrap"
+import { FormGroup, Label, Row, Col } from "reactstrap"
 import LocationAutocomplete from "../components/LocationAutocomplete"
 import { ReactstrapInput } from "reactstrap-formik"
 import PageWrap from "../components/PageWrap"
-import styled from "styled-components/macro"
+import { StdFormButton, StdFormInfoCol, StdFormCol } from "../components/FormStandard"
 import Alert from "../components/Alert"
-
-const MaxWidthButton = styled(Button)`
-  max-width: 300px;
-`
 
 export default () => {
   const [address, setAddress] = useState({})
@@ -20,13 +16,11 @@ export default () => {
   const toggleModal = () => setModal(!isModalOpen)
 
   const validationSchema = Yup.object().shape({
-    name: Yup.string().required("Jméno je povinné pole"),
-    email: Yup.string()
-      .email("Neplatný email. Systém očekává formát honza.novak@seznam.cz")
-      .required("Email je povinné pole"),
+    name: Yup.string().required("Chybí jméno"),
+    email: Yup.string().email("Neplatný email").required("Chybí email"),
     phone_number: Yup.string(),
-    request_topic: Yup.string().required("Předmět je povinné pole"),
-    request_description: Yup.string().required("Popis žádosti je povinné pole"),
+    request_topic: Yup.string().required("Chybí předmět"),
+    request_description: Yup.string().required("Chybí popis"),
   })
 
   const initialValues = {
@@ -68,14 +62,14 @@ export default () => {
         buttonLabel="Dobře"
       ></Alert>
       <Row className="justify-content-center mb-4">
-        <Col style={{ maxWidth: 700 }}>
+        <StdFormInfoCol>
           <h3>S čím potřebujete pomoci?</h3>
           <p>
             Každý z nás se občas dostane do situace, kdy si neví rady. Nebojte se a požádejte o pomoc. Ať už se jedná o
             výměnu žárovky, přivrtání poličky, donesení nákupu či venčení psa. Pokusíme se vás propojit s lidmi z vašeho
             okolí, kteří rádi podají pomocnou ruku.
           </p>
-        </Col>
+        </StdFormInfoCol>
       </Row>
       <Row>
         <Col>
@@ -83,7 +77,7 @@ export default () => {
             {() => (
               <Form className="askhelp-form">
                 <Row className="justify-content-center">
-                  <Col style={{ maxWidth: 600 }}>
+                  <StdFormCol>
                     <FormGroup>
                       <Field
                         label="Jméno*"
@@ -109,7 +103,7 @@ export default () => {
                         id="email"
                         name="email"
                         type="text"
-                        placeholder="Vyplňte e-mail, aby vás pomocníci mohli kontaktovat."
+                        placeholder="Vyplňte email, aby vás pomocníci mohli kontaktovat."
                       />
                     </FormGroup>
                     <FormGroup>
@@ -143,13 +137,13 @@ export default () => {
                         placeholder="Popiště co nejpřesněji o co se jedná, aby pomocník přišel připravený. Bude potřeba přinést nářadí?"
                       />
                     </FormGroup>
-                  </Col>
+                  </StdFormCol>
                 </Row>
                 <Row>
                   <Col align="center">
-                    <MaxWidthButton className="btn-lg btn-dark btn-block submit-button" type="submit">
+                    <StdFormButton className="btn-lg btn-dark btn-block submit-button" type="submit">
                       Poslat žádost
-                    </MaxWidthButton>
+                    </StdFormButton>
                   </Col>
                 </Row>
               </Form>
