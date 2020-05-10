@@ -8,11 +8,7 @@ import { ReactstrapInput } from "reactstrap-formik"
 import PageWrap from "../components/PageWrap"
 import styled from "styled-components/macro"
 import Alert from "../components/Alert"
-import { StdFormButton, StdFormInfoCol, StdFormCol } from "../components/FormStandard"
-
-const MaxWidthButton = styled(Button)`
-  max-width: 300px;
-`
+import { StdFormInfoCol, StdFormCol } from "../components/FormStandard"
 
 export default () => {
   const [isModalOpen, setModal] = useState(false)
@@ -112,9 +108,9 @@ export default () => {
                 </Row>
                 <Row>
                   <Col align="center">
-                    <StdFormButton className="btn-lg btn-dark btn-block submit-button" type="submit">
+                    <Button outline color="primary" type="submit">
                       Poslat připomínku
-                    </StdFormButton>{" "}
+                    </Button>
                   </Col>
                 </Row>
               </Form>

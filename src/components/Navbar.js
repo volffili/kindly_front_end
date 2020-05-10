@@ -8,9 +8,9 @@ export default () => {
 
   return (
     <div>
-      <Navbar color="light" light expand="md" fixed="top">
+      <Navbar light expand="md" fixed="top" color="light">
         <NavbarBrand tag={Link} to="/">
-          Kindly
+          <b className="text-primary">Kindly</b>
         </NavbarBrand>
 
         <Collapse isOpen={isOpen} navbar>

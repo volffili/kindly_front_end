@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react"
 import axios from "axios"
 import { baseUrl } from "../Url"
 import Map from "./Map"
-import { Button } from "reactstrap"
-import Loading from "./Loading"
+import { Button, Row, Col, Card, CardTitle, CardText, CardBody, CardFooter } from "reactstrap"
+import PageWrap from "../components/PageWrap"
 
 export default (props) => {
   const [helpRequest, setHelpRequest] = useState(null)
@@ -28,46 +28,34 @@ export default (props) => {
   }, [])
 
   return (
-    <div
-      style={{
-        height: "100%",
-      }}
-    >
-      {helpRequest === null ? (
-        <Loading />
-      ) : (
-        <div>
-          <h1>Jak můžete Vy pomoci ostatním?</h1>
-          />
-          <div
-            className="wrapper"
-            style={{
-              display: "flex",
-              justifyContent: "space-between",
-            }}
-          >
-            <div className="description">
-              <h1>{helpRequest.request_topic}</h1>
-              <h4>{helpRequest.request_details}</h4>
-              <p>{helpRequest.request_description}</p>
-              <p>{helpRequest.requester_name ? `Jméno = ${helpRequest.requester_name}` : null}</p>
-              <p>{helpRequest.requester_email ? `Email = ${helpRequest.requester_email}` : null}</p>
-              <p>
-                {helpRequest.requester_phone_number ? `Telefonní číslo = ${helpRequest.requester_phone_number}` : null}
-              </p>
-              <p>{helpRequest.requester_age ? `Věk = ${helpRequest.requester_age}` : null}</p>
-              <p>
-                {helpRequest.request_create_timestamp
-                  ? `Den zadani = ${new Date(helpRequest.request_create_timestamp).toLocaleDateString()}`
-                  : null}
-              </p>
-            </div>
-            <div
-              className="map"
-              style={{
-                width: "80%",
-              }}
-            >
+    <PageWrap>
+      {helpRequest && (
+        <>
+          <Row>
+            <Col>
+              <Card>
+                <CardBody>
+                  <CardTitle>
+                    <h3>{helpRequest.request_topic}</h3>
+                  </CardTitle>
+                  <CardText>{helpRequest.request_details}</CardText>
+                  <CardText className="text-right mt-auto d-flex flex-row justify-content-between">
+                    {helpRequest.request_create_timestamp &&
+                      new Date(helpRequest.request_create_timestamp).toLocaleDateString()}
+                    <Button href={navigationLink} target="_blank">
+                      Otevřít v navigaci
+                    </Button>
+                  </CardText>
+                </CardBody>
+                <CardFooter>
+                  {helpRequest.requester_name + ", " + helpRequest.requester_email}
+                  {helpRequest.requester_phone_number && ", " + helpRequest.requester_phone_number}
+                </CardFooter>
+              </Card>
+            </Col>
+          </Row>
+          <Row>
+            <Col>
               <Map
                 zoom={12}
                 center={{
@@ -79,23 +67,10 @@ export default (props) => {
                 helpRequests={[helpRequest]}
                 link={false}
               />
-
-              <a href={navigationLink} target="_blank">
-                <Button
-                  color="primary"
-                  style={{
-                    width: "40%",
-                    marginLeft: "30%",
-                    marginTop: "30px",
-                  }}
-                >
-                  Otevřít v navigaci
-                </Button>
-              </a>
-            </div>
-          </div>
-        </div>
+            </Col>
+          </Row>
+        </>
       )}
-    </div>
+    </PageWrap>
   )
 }

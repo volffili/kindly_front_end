@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react"
-import { Table, Row, Col } from "reactstrap"
+import { Row, Col } from "reactstrap"
 import axios from "axios"
 import HelpCard from "../components/HelpCard"
 import { baseUrl } from "../Url"
@@ -68,7 +68,11 @@ export default () => {
           ))}
         </Row>
       )}
-      <Pagination rowsPerPage={requestsPerPage} totalRows={helpRequests.length} paginate={paginate} />
+      <Row>
+        <Col className="d-flex justify-content-center">
+          <Pagination requestsPerPage={requestsPerPage} totalRequests={helpRequests.length} paginate={paginate} />
+        </Col>
+      </Row>
     </PageWrap>
   )
 }

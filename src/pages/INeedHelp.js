@@ -3,11 +3,11 @@ import { Field, Form, Formik } from "formik"
 import * as Yup from "yup"
 import axios from "axios"
 import { baseUrl } from "../Url"
-import { FormGroup, Label, Row, Col } from "reactstrap"
+import { FormGroup, Label, Row, Col, Button } from "reactstrap"
 import LocationAutocomplete from "../components/LocationAutocomplete"
 import { ReactstrapInput } from "reactstrap-formik"
 import PageWrap from "../components/PageWrap"
-import { StdFormButton, StdFormInfoCol, StdFormCol } from "../components/FormStandard"
+import { StdFormInfoCol, StdFormCol } from "../components/FormStandard"
 import Alert from "../components/Alert"
 
 export default () => {
@@ -141,9 +141,9 @@ export default () => {
                 </Row>
                 <Row>
                   <Col align="center">
-                    <StdFormButton className="btn-lg btn-dark btn-block submit-button" type="submit">
+                    <Button outline color="primary" type="submit">
                       Poslat žádost
-                    </StdFormButton>
+                    </Button>
                   </Col>
                 </Row>
               </Form>

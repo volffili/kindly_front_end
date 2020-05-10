@@ -1,6 +1,7 @@
 import React, { useEffect } from "react"
 import { Button, Card, CardText, CardBody, CardTitle } from "reactstrap"
 import styled from "styled-components/macro"
+import { Link } from "react-router-dom"
 
 const Description = styled(CardText)`
   overflow: hidden;
@@ -12,13 +13,8 @@ const Description = styled(CardText)`
 export default (props) => {
   useEffect(() => {}, [])
 
-  const redirectToDetails = () => {
-    const url = `/details/${props.helpRequest.request_id}`
-    window.open(url)
-  }
-
   return (
-    <Card className="my-3" color="secondary" outline style={{ height: 260 }}>
+    <Card className="my-3" color="light" style={{ height: 260 }}>
       <CardBody className="d-flex flex-column">
         <CardTitle>
           <b>{props.helpRequest.request_topic}</b>
@@ -26,9 +22,11 @@ export default (props) => {
         <Description>{props.helpRequest.request_details}</Description>
         <CardText className="text-right mt-auto d-flex flex-row justify-content-between">
           {new Date(props.helpRequest.request_create_timestamp).toLocaleDateString()}
-          <Button outline onClick={redirectToDetails}>
-            Detail pomoci
-          </Button>
+          <Link to={`/details/${props.helpRequest.request_id}`}>
+            <Button outline color="primary">
+              Detail pomoci
+            </Button>
+          </Link>
         </CardText>
       </CardBody>
     </Card>
