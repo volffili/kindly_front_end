@@ -25,6 +25,7 @@ export default (props) => {
     geocodeByAddress(address)
       .then((results) => getLatLng(results[0]))
       .then((latLng) => {
+        console.log(latLng)
         props.onAddressSelect({
           formatted_address: address,
           lat: latLng.lat,

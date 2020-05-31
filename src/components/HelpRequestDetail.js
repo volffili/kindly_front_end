@@ -62,8 +62,8 @@ export default (props) => {
                   lat: parseFloat(helpRequest.requester_address_lat),
                   lng: parseFloat(helpRequest.requester_address_lng),
                 }}
-                containerElement={<div style={{ height: `100%` }} />}
-                mapElement={<div style={{ height: `100%` }} />}
+                containerElement={<div style={{ padding: "20px 0", width: "100%", height: `400px` }} />}
+                mapElement={<div style={{ width: "100%", height: `400px` }} />}
                 helpRequests={[helpRequest]}
                 link={false}
               />
