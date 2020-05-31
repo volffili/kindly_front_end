@@ -9,11 +9,22 @@ import { ReactstrapInput } from "reactstrap-formik"
 import PageWrap from "../components/PageWrap"
 import { StdFormInfoCol, StdFormCol } from "../components/FormStandard"
 import Alert from "../components/Alert"
+import { useHistory } from "react-router-dom";
 
 export default () => {
   const [address, setAddress] = useState({})
   const [isModalOpen, setModal] = useState(false)
-  const toggleModal = () => setModal(!isModalOpen)
+  const toggleModal = () => {
+    setModal(!isModalOpen)
+  };
+  
+  const history = useHistory();
+  
+  const closeDailog = () => {
+    setModal(!isModalOpen)
+    let path = `iwanttohelp`;
+    history.push(path);
+  };
 
   const validationSchema = Yup.object().shape({
     name: Yup.string().required("Chybí jméno"),
@@ -56,7 +67,7 @@ export default () => {
     <PageWrap>
       <Alert
         isOpen={isModalOpen}
-        toggle={toggleModal}
+        toggle={closeDailog}
         body="Vaše žádost o pomoc byla odeslána. Teď už jen počkejte, až vám přijde email s nabídkou pomoci."
         buttonLabel="Ok"
       ></Alert>

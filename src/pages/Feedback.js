@@ -9,10 +9,19 @@ import PageWrap from "../components/PageWrap"
 import styled from "styled-components/macro"
 import Alert from "../components/Alert"
 import { StdFormInfoCol, StdFormCol } from "../components/FormStandard"
+import {useHistory} from "react-router-dom";
 
 export default () => {
   const [isModalOpen, setModal] = useState(false)
   const toggleModal = () => setModal(!isModalOpen)
+  
+  const history = useHistory();
+  
+  const closeDailog = () => {
+    setModal(!isModalOpen)
+    let path = `iwanttohelp`;
+    history.push(path);
+  };
 
   const validationSchema = Yup.object().shape({
     requester_email: Yup.string().required("Chybí email").email("Neplatný email").max(100, "Email je příliš dlouhý"),
@@ -44,7 +53,7 @@ export default () => {
     <PageWrap>
       <Alert
         isOpen={isModalOpen}
-        toggle={toggleModal}
+        toggle={closeDailog}
         body="Vaše otázka byla odeslána. Teď už jen počkejte na email s odpovědí."
         buttonLabel="Ok"
       ></Alert>
