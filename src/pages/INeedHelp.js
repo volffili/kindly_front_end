@@ -57,9 +57,8 @@ export default () => {
       <Alert
         isOpen={isModalOpen}
         toggle={toggleModal}
-        title="Title"
-        body="Teď už jen stačí počkat než se ti někdo ozve! asldfkasjdlfk jsadfl dfk jalsfldskaj fa adlkfj Např. Mám 2 psy typu čivava které je potřeba venčit 2-krát denně, ráno a veče "
-        buttonLabel="Dobře"
+        body="Vaše žádost o pomoc byla odeslána. Teď už jen počkejte, až vám přijde email s nabídkou pomoci."
+        buttonLabel="Ok"
       ></Alert>
       <Row className="justify-content-center mb-4">
         <StdFormInfoCol>
