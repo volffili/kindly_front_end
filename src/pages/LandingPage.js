@@ -17,9 +17,7 @@ export default () => (
     <Row className="justify-content-center">
       <Col className="my-auto py-5" align="center" style={{ maxWidth: 800 }}>
         <h3 className="text-primary mb-3">
-          <i>
-            In the world where you can be anything, be <b>kind</b>.
-          </i>
+          <i>In the world where you can be anything, be kind.</i>
         </h3>
         <p>
           Kindly je místo, kde si lidé pomáhají. Ať už pomocnou ruku nabízíte nebo ji potřebujete. Kindly vám dává

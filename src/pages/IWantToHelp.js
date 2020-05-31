@@ -13,7 +13,7 @@ export default () => {
   const [totalCount, setTotalCount] = useState([])
   const [loading, setLoading] = useState(false)
   const [currentPage, setCurrentPage] = useState(1)
-  const [requestsPerPage] = useState(6)
+  const [requestsPerPage] = useState(12)
 
   useEffect(() => {
     setLoading(true)

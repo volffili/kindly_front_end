@@ -45,10 +45,8 @@ export default () => {
       <Alert
         isOpen={isModalOpen}
         toggle={toggleModal}
-        title="Title"
-        body="Díky moc za feedback1 y Pokud jste odpověděl/a ANO na jakoukoli z výše položených otázek, tak prosím neváhejte a vyplňte formulář
-        níže. Zabere Vám to 2 minuty. Vaše zpětypu čivava které je potřeba venčit 2-krát denně, ráno a veče "
-        buttonLabel="Není zač"
+        body="Vaše otázka byla odeslána. Teď už jen počkejte na email s odpovědí."
+        buttonLabel="Ok"
       ></Alert>
       <Row className="justify-content-center mb-4">
         <StdFormInfoCol>
